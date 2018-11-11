@@ -1,0 +1,1 @@
+spring:  mvc:    view:      prefix: /WEB-INF/jsp/      suffix: .jsp   devtools:    restart:      enabled: true      additional-paths: src/main/java      exclude: WEB-INF/**
