@@ -56,13 +56,9 @@ public class SpringOrCodeImge {
      */
     public static boolean zxingCodeCreate(String content, String path, Integer size, String logoPath) {
         try {
-            //图片类型
             String imageType = "jpg";
-            //获取二维码流的形式，写入到目录文件中
             BufferedImage image = getBufferedImage(content, size, logoPath);
-            //获得随机数
             Random random = new Random();
-            //生成二维码存放文件
             File file = new File(path+random.nextInt(1000)+".jpg");
             if (!file.exists()) {
                 file.mkdirs();
@@ -89,28 +85,20 @@ public class SpringOrCodeImge {
         }
         BufferedImage image = null;
         try {
-            // 设置编码字符集
             Map<EncodeHintType, Object> hints = new HashMap<>();
-            //设置编码
             hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
-            //设置容错率最高
             hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
             hints.put(EncodeHintType.MARGIN, 1);
-            // 1、生成二维码
             MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
             BitMatrix bitMatrix = multiFormatWriter.encode(content, BarcodeFormat.QR_CODE, size, size, hints);
-            // 2、获取二维码宽高
             int codeWidth = bitMatrix.getWidth();
             int codeHeight = bitMatrix.getHeight();
-            // 3、将二维码放入缓冲流
             image = new BufferedImage(codeWidth, codeHeight, BufferedImage.TYPE_INT_RGB);
             for (int i = 0; i < codeWidth; i++) {
                 for (int j = 0; j < codeHeight; j++) {
-                    // 4、循环将二维码内容定入图片
                     image.setRGB(i, j, bitMatrix.get(i, j) ? BLACK : WHITE);
                 }
             }
-            //判断是否写入logo图片
             if (logoPath != null && !"".equals(logoPath)) {
                 File logoPic = new File(logoPath);
                 if (logoPic.exists()) {
@@ -120,12 +108,9 @@ public class SpringOrCodeImge {
                     int heightLogo = logo.getHeight(null) > image.getHeight() * 2 / 10 ? (image.getHeight() * 2 / 10) : logo.getHeight(null);
                     int x = (image.getWidth() - widthLogo) / 2;
                     int y = (image.getHeight() - heightLogo) / 2;
-                    // 开始绘制图片
                     g.drawImage(logo, x, y, widthLogo, heightLogo, null);
                     g.drawRoundRect(x, y, widthLogo, heightLogo, 15, 15);
-                    //边框宽度
                     g.setStroke(new BasicStroke(2));
-                    //边框颜色
                     g.setColor(Color.WHITE);
                     g.drawRect(x, y, widthLogo, heightLogo);
                     g.dispose();
@@ -159,24 +144,17 @@ public class SpringOrCodeImge {
                 return false;
             }
 
-            //读取二维码图片，并构建绘图对象
 
             BufferedImage image = ImageIO.read(qrPic);
             Graphics2D g = image.createGraphics();
-            //读取Logo图片
             BufferedImage logo = ImageIO.read(logoPic);
-            //设置logo的大小,最多20%0
             int widthLogo = logo.getWidth(null) > image.getWidth() * 2 / 10 ? (image.getWidth() * 2 / 10) : logo.getWidth(null);
             int heightLogo = logo.getHeight(null) > image.getHeight() * 2 / 10 ? (image.getHeight() * 2 / 10) : logo.getHeight(null);
-            // 计算图片放置位置，默认在中间
             int x = (image.getWidth() - widthLogo) / 2;
             int y = (image.getHeight() - heightLogo) / 2;
-            // 开始绘制图片
             g.drawImage(logo, x, y, widthLogo, heightLogo, null);
             g.drawRoundRect(x, y, widthLogo, heightLogo, 15, 15);
-            //边框宽度
             g.setStroke(new BasicStroke(2));
-            //边框颜色
             g.setColor(Color.WHITE);
             g.drawRect(x, y, widthLogo, heightLogo);
             g.dispose();
