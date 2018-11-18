@@ -18,7 +18,7 @@ import com.Mai.Util.Type_YanZheng;
 public class QrCodeImgBuff {
 	@GetMapping("/Qrimge.Sc")
 	public void GetImgBuffShow(HttpServletResponse response,String url) {
-		BufferedImage bufferedImage = SpringOrCodeImge.getBufferedImage(url, 300, "E:\\code\\Img\\title.jpg");
+		BufferedImage bufferedImage = SpringOrCodeImge.getBufferedImage(url, 300, "E:\\code\\title.jpg");
 		try {
 			ImageIO.write(bufferedImage, "JPEG", response.getOutputStream());
 		} catch (IOException e) {
@@ -27,7 +27,8 @@ public class QrCodeImgBuff {
 	}
 	@GetMapping("/YanZhen.Sc")
 	public void YanZhen(HttpServletResponse response) {
-		BufferedImage image = Type_YanZheng.getImage(150, 50, "abck");
+		String generateVerifyCode = Type_YanZheng.generateVerifyCode(4);
+		BufferedImage image = Type_YanZheng.getImage(150, 50, generateVerifyCode);
 		
 		try {
 			ImageIO.write(image, "JPEG", response.getOutputStream());

@@ -1,4 +1,7 @@
 package com.Mai.Util.overall;
+
+import org.springframework.beans.factory.annotation.Value;
+
 /**
  * 
  * @author root
@@ -13,6 +16,7 @@ public class CtententPage {
 	                            'm','n','o','p','q','r','s','t','u','v','w','s',
 	                            'y','z',
 	                            's'};//配置全局算法半成品的ASCLL码表
+	@Value("${spring.Type.FileNameTimeFilePage}")
 	public static int FileNameTimeFilePage=15;//随机生成文件名的按照时间算法的配置 Ascall表的次数
 	
 	
