@@ -21,9 +21,10 @@ public class SerializableUtil {
         try {
     	   ObjectOutputStream objOut = new ObjectOutputStream(byteOut);  
            objOut.writeObject(object);  
-           str = byteOut.toString("ISO-8859-1");//此处只能是ISO-8859-1,但是不会影响中文使用
+           //序列化只能使用ISO-8859-1进行编码
+           str = byteOut.toString("ISO-8859-1");
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
         return str;
 	}

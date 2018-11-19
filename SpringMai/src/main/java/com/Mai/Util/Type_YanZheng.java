@@ -65,10 +65,10 @@ public class Type_YanZheng {
  
     /**
      * 输出随机验证码图片流,并返回验证码值
-     * @param w
-     * @param h
-     * @param os
-     * @param verifySize
+     * @param w  图片的宽度
+     * @param h 图片的高度
+     * @param os 输入流
+     * @param verifySize 版本号
      * @return
      * @throws IOException
      */
@@ -103,7 +103,13 @@ public class Type_YanZheng {
             throw e;
         }
     }
- 
+    /**
+     * 
+     * @param w 高度
+     * @param h 宽度
+     * @param code 字符串
+     * @return 图片流
+     */
     public static BufferedImage getImage(int w,int h,String code){
         int verifySize = code.length();
         BufferedImage image = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);

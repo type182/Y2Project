@@ -72,12 +72,12 @@ public class SpringOrCodeImge {
     }
 
     /**
-     * 二维码流的形式，包含文本内容
+     * 
      *
      * @param content  二维码文本内容
      * @param size     二维码尺寸
      * @param logoPath logo的存放位置
-     * @return
+     * @return 二维码流的形式，包含文本内容
      */
     public static BufferedImage getBufferedImage(String content, Integer size, String logoPath) {
         if (size == null || size <= 0) {
@@ -127,11 +127,12 @@ public class SpringOrCodeImge {
     }
 
     /**
-     * 给二维码图片添加Logo
+     * 
      *
      * @param qrPic   二维码图片
      * @param logoPic logo图片
      * @param path    合成后的图片存储目录
+     *	 给二维码图片添加Logo
      */
     public static boolean zxingCodeCreate(File qrPic, File logoPic, String path) {
         try {
@@ -174,10 +175,10 @@ public class SpringOrCodeImge {
 
 
     /**
-     * 二维码的解析方法
+     * 
      *
      * @param path 二维码图片目录
-     * @return
+     * @return 二维码的解析方法
      */
     public static Result zxingCodeAnalyze(String path) {
         try {
