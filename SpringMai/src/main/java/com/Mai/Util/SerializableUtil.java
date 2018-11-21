@@ -13,7 +13,7 @@ public class SerializableUtil {
 	/**
 	 * 
 	 * @param object  准备序列化的对象
-	 * @return 返回序列化后的数组
+	 * @return 返回序列化后String类型
 	 */
 	public static String SerializableEncode(Object object){
 		ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
@@ -31,7 +31,7 @@ public class SerializableUtil {
 	/**
 	 * 
 	 * @param bytes 序列化后的byte数组
-	 * @return 反序列化后的值
+	 * @return 反序列化后的pojo类对象
 	 */
     public static Object SerializableDecode(String str) {
     	 try {
