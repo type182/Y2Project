@@ -79,4 +79,17 @@
       head_portrait = #{headPortrait,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- 扩展 -->
+  
+  
+  
+  
 </mapper>

@@ -1,4 +1,4 @@
-package com.Mai.service.redis.impl;
+package com.Mai.service.redis;
 
 
 import java.util.ArrayList;

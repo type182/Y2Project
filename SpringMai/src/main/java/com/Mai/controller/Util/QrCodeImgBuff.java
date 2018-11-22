@@ -1,4 +1,4 @@
-package com.Mai.controller.BuffImage;
+package com.Mai.controller.Util;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -14,9 +14,9 @@ import com.Mai.Util.SpringOrCodeImge;
 import com.Mai.Util.Type_YanZheng;
 
 @RestController
-@RequestMapping("/QrCodee")
+@RequestMapping("/ImgeSource")
 public class QrCodeImgBuff {
-	@GetMapping("/Qrimge.Sc")
+	@GetMapping("/QRcode.production")
 	public void GetImgBuffShow(HttpServletResponse response,String url) {
 		BufferedImage bufferedImage = SpringOrCodeImge.getBufferedImage(url, 300, "E:\\code\\title.jpg");
 		try {
@@ -25,7 +25,7 @@ public class QrCodeImgBuff {
 			e.printStackTrace();
 		}
 	}
-	@GetMapping("/YanZhen.Sc")
+	@GetMapping("/VFcode.production")
 	public void YanZhen(HttpServletResponse response) {
 		String generateVerifyCode = Type_YanZheng.generateVerifyCode(4);
 		BufferedImage image = Type_YanZheng.getImage(150, 50, generateVerifyCode);
