@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Mai.dao.Mybatis.GoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.Mai.pojo.Mybatis.Goods" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="itemname" property="itemname" jdbcType="VARCHAR" />
+    <result column="itempice" property="itempice" jdbcType="DOUBLE" />
+    <result column="goods_shop_id" property="goodsShopId" jdbcType="INTEGER" />
+    <result column="goods_upload_time" property="goodsUploadTime" jdbcType="DATE" />
+    <result column="goods_brand" property="goodsBrand" jdbcType="INTEGER" />
+    <result column="goods_type" property="goodsType" jdbcType="INTEGER" />
+    <result column="goods_detailed" property="goodsDetailed" jdbcType="VARCHAR" />
+    <result column="goods_set_the_recommended" property="goodsSetTheRecommended" jdbcType="BIT" />
+    <result column="goods_resources" property="goodsResources" jdbcType="VARCHAR" />
+    <result column="goods_state" property="goodsState" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, itemname, itempice, goods_shop_id, goods_upload_time, goods_brand, goods_type, 
+    goods_detailed, goods_set_the_recommended, goods_resources, goods_state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.Mai.pojo.Mybatis.Goods" >
+    insert into goods (id, itemname, itempice, 
+      goods_shop_id, goods_upload_time, goods_brand, 
+      goods_type, goods_detailed, goods_set_the_recommended, 
+      goods_resources, goods_state)
+    values (#{id,jdbcType=INTEGER}, #{itemname,jdbcType=VARCHAR}, #{itempice,jdbcType=DOUBLE}, 
+      #{goodsShopId,jdbcType=INTEGER}, #{goodsUploadTime,jdbcType=DATE}, #{goodsBrand,jdbcType=INTEGER}, 
+      #{goodsType,jdbcType=INTEGER}, #{goodsDetailed,jdbcType=VARCHAR}, #{goodsSetTheRecommended,jdbcType=BIT}, 
+      #{goodsResources,jdbcType=VARCHAR}, #{goodsState,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Mai.pojo.Mybatis.Goods" >
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="itemname != null" >
+        itemname,
+      </if>
+      <if test="itempice != null" >
+        itempice,
+      </if>
+      <if test="goodsShopId != null" >
+        goods_shop_id,
+      </if>
+      <if test="goodsUploadTime != null" >
+        goods_upload_time,
+      </if>
+      <if test="goodsBrand != null" >
+        goods_brand,
+      </if>
+      <if test="goodsType != null" >
+        goods_type,
+      </if>
+      <if test="goodsDetailed != null" >
+        goods_detailed,
+      </if>
+      <if test="goodsSetTheRecommended != null" >
+        goods_set_the_recommended,
+      </if>
+      <if test="goodsResources != null" >
+        goods_resources,
+      </if>
+      <if test="goodsState != null" >
+        goods_state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="itemname != null" >
+        #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="itempice != null" >
+        #{itempice,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsShopId != null" >
+        #{goodsShopId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsUploadTime != null" >
+        #{goodsUploadTime,jdbcType=DATE},
+      </if>
+      <if test="goodsBrand != null" >
+        #{goodsBrand,jdbcType=INTEGER},
+      </if>
+      <if test="goodsType != null" >
+        #{goodsType,jdbcType=INTEGER},
+      </if>
+      <if test="goodsDetailed != null" >
+        #{goodsDetailed,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSetTheRecommended != null" >
+        #{goodsSetTheRecommended,jdbcType=BIT},
+      </if>
+      <if test="goodsResources != null" >
+        #{goodsResources,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsState != null" >
+        #{goodsState,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Mai.pojo.Mybatis.Goods" >
+    update goods
+    <set >
+      <if test="itemname != null" >
+        itemname = #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="itempice != null" >
+        itempice = #{itempice,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsShopId != null" >
+        goods_shop_id = #{goodsShopId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsUploadTime != null" >
+        goods_upload_time = #{goodsUploadTime,jdbcType=DATE},
+      </if>
+      <if test="goodsBrand != null" >
+        goods_brand = #{goodsBrand,jdbcType=INTEGER},
+      </if>
+      <if test="goodsType != null" >
+        goods_type = #{goodsType,jdbcType=INTEGER},
+      </if>
+      <if test="goodsDetailed != null" >
+        goods_detailed = #{goodsDetailed,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSetTheRecommended != null" >
+        goods_set_the_recommended = #{goodsSetTheRecommended,jdbcType=BIT},
+      </if>
+      <if test="goodsResources != null" >
+        goods_resources = #{goodsResources,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsState != null" >
+        goods_state = #{goodsState,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Mai.pojo.Mybatis.Goods" >
+    update goods
+    set itemname = #{itemname,jdbcType=VARCHAR},
+      itempice = #{itempice,jdbcType=DOUBLE},
+      goods_shop_id = #{goodsShopId,jdbcType=INTEGER},
+      goods_upload_time = #{goodsUploadTime,jdbcType=DATE},
+      goods_brand = #{goodsBrand,jdbcType=INTEGER},
+      goods_type = #{goodsType,jdbcType=INTEGER},
+      goods_detailed = #{goodsDetailed,jdbcType=VARCHAR},
+      goods_set_the_recommended = #{goodsSetTheRecommended,jdbcType=BIT},
+      goods_resources = #{goodsResources,jdbcType=VARCHAR},
+      goods_state = #{goodsState,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

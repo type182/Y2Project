@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Mai.dao.Mybatis.ShopMapper" >
+  <resultMap id="BaseResultMap" type="com.Mai.pojo.Mybatis.Shop" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="shop_address" property="shopAddress" jdbcType="VARCHAR" />
+    <result column="shop_url" property="shopUrl" jdbcType="VARCHAR" />
+    <result column="shop_type" property="shopType" jdbcType="INTEGER" />
+    <result column="shop_credit" property="shopCredit" jdbcType="VARCHAR" />
+    <result column="shop_hot" property="shopHot" jdbcType="INTEGER" />
+    <result column="shop_header_picture" property="shopHeaderPicture" jdbcType="INTEGER" />
+    <result column="shop_home_page_content" property="shopHomePageContent" jdbcType="VARCHAR" />
+    <result column="shop_Size" property="shopSize" jdbcType="INTEGER" />
+    <result column="shop_ore_size" property="shopOreSize" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, shop_name, user_id, shop_address, shop_url, shop_type, shop_credit, shop_hot, 
+    shop_header_picture, shop_home_page_content, shop_Size, shop_ore_size
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from shop
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from shop
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.Mai.pojo.Mybatis.Shop" >
+    insert into shop (id, shop_name, user_id, 
+      shop_address, shop_url, shop_type, 
+      shop_credit, shop_hot, shop_header_picture, 
+      shop_home_page_content, shop_Size, shop_ore_size
+      )
+    values (#{id,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{shopAddress,jdbcType=VARCHAR}, #{shopUrl,jdbcType=VARCHAR}, #{shopType,jdbcType=INTEGER}, 
+      #{shopCredit,jdbcType=VARCHAR}, #{shopHot,jdbcType=INTEGER}, #{shopHeaderPicture,jdbcType=INTEGER}, 
+      #{shopHomePageContent,jdbcType=VARCHAR}, #{shopSize,jdbcType=INTEGER}, #{shopOreSize,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.Mai.pojo.Mybatis.Shop" >
+    insert into shop
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopName != null" >
+        shop_name,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="shopAddress != null" >
+        shop_address,
+      </if>
+      <if test="shopUrl != null" >
+        shop_url,
+      </if>
+      <if test="shopType != null" >
+        shop_type,
+      </if>
+      <if test="shopCredit != null" >
+        shop_credit,
+      </if>
+      <if test="shopHot != null" >
+        shop_hot,
+      </if>
+      <if test="shopHeaderPicture != null" >
+        shop_header_picture,
+      </if>
+      <if test="shopHomePageContent != null" >
+        shop_home_page_content,
+      </if>
+      <if test="shopSize != null" >
+        shop_Size,
+      </if>
+      <if test="shopOreSize != null" >
+        shop_ore_size,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shopAddress != null" >
+        #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shopUrl != null" >
+        #{shopUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="shopType != null" >
+        #{shopType,jdbcType=INTEGER},
+      </if>
+      <if test="shopCredit != null" >
+        #{shopCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="shopHot != null" >
+        #{shopHot,jdbcType=INTEGER},
+      </if>
+      <if test="shopHeaderPicture != null" >
+        #{shopHeaderPicture,jdbcType=INTEGER},
+      </if>
+      <if test="shopHomePageContent != null" >
+        #{shopHomePageContent,jdbcType=VARCHAR},
+      </if>
+      <if test="shopSize != null" >
+        #{shopSize,jdbcType=INTEGER},
+      </if>
+      <if test="shopOreSize != null" >
+        #{shopOreSize,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Mai.pojo.Mybatis.Shop" >
+    update shop
+    <set >
+      <if test="shopName != null" >
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shopAddress != null" >
+        shop_address = #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shopUrl != null" >
+        shop_url = #{shopUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="shopType != null" >
+        shop_type = #{shopType,jdbcType=INTEGER},
+      </if>
+      <if test="shopCredit != null" >
+        shop_credit = #{shopCredit,jdbcType=VARCHAR},
+      </if>
+      <if test="shopHot != null" >
+        shop_hot = #{shopHot,jdbcType=INTEGER},
+      </if>
+      <if test="shopHeaderPicture != null" >
+        shop_header_picture = #{shopHeaderPicture,jdbcType=INTEGER},
+      </if>
+      <if test="shopHomePageContent != null" >
+        shop_home_page_content = #{shopHomePageContent,jdbcType=VARCHAR},
+      </if>
+      <if test="shopSize != null" >
+        shop_Size = #{shopSize,jdbcType=INTEGER},
+      </if>
+      <if test="shopOreSize != null" >
+        shop_ore_size = #{shopOreSize,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Mai.pojo.Mybatis.Shop" >
+    update shop
+    set shop_name = #{shopName,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      shop_address = #{shopAddress,jdbcType=VARCHAR},
+      shop_url = #{shopUrl,jdbcType=VARCHAR},
+      shop_type = #{shopType,jdbcType=INTEGER},
+      shop_credit = #{shopCredit,jdbcType=VARCHAR},
+      shop_hot = #{shopHot,jdbcType=INTEGER},
+      shop_header_picture = #{shopHeaderPicture,jdbcType=INTEGER},
+      shop_home_page_content = #{shopHomePageContent,jdbcType=VARCHAR},
+      shop_Size = #{shopSize,jdbcType=INTEGER},
+      shop_ore_size = #{shopOreSize,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
