@@ -1,5 +1,5 @@
 #!/bin/sh
-
+# 我是Type
 if [ -z "$MAVEN_SKIP_RC" ] ; then
 
   if [ -f /etc/mavenrc ] ; then
