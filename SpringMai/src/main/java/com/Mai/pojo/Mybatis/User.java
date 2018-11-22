@@ -1,21 +1,22 @@
 package com.Mai.pojo.Mybatis;
 
-public class User {
-    private Integer id;
 
-    private Integer userName;
+public class User{
+    private Integer id;  //用户id
 
-    private String userPwd;
+    private String userName; //用户名
 
-    private String userPhone;
+    private String userPwd;  //用户密码
 
-    private String userEmail;
+    private String userPhone;  //用户手机
+	   
+    private String userEmail; //用户邮箱
 
-    private Integer userDeliverGoodsId;
+    private Integer userDeliverGoodsId; //收获地址
 
-    private String userHead;
+    private String userHead;  //用户头像地址
 
-    private Integer userIntegral;
+    private Integer userIntegral;  //用户金币
 
     public Integer getId() {
         return id;
@@ -25,11 +26,11 @@ public class User {
         this.id = id;
     }
 
-    public Integer getUserName() {
+    public String getUserName() {
         return userName;
     }
 
-    public void setUserName(Integer userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
     }
 
@@ -80,4 +81,32 @@ public class User {
     public void setUserIntegral(Integer userIntegral) {
         this.userIntegral = userIntegral;
     }
+    /**
+     * 
+     * @param id  用户id
+     * @param userName   用户名
+     * @param userPwd   用户密码
+     * @param userPhone  用户手机
+     * @param userEmail  用户邮箱
+     * @param userDeliverGoodsId  用户收获地址
+     * @param userHead  用户头像
+     * @param userIntegral  用户余额
+     */
+	public User(Integer id, String userName, String userPwd, String userPhone, String userEmail,
+			Integer userDeliverGoodsId, String userHead, Integer userIntegral) {
+		this.id = id;
+		this.userName = userName;
+		this.userPwd = userPwd;
+		this.userPhone = userPhone;
+		this.userEmail = userEmail;
+		this.userDeliverGoodsId = userDeliverGoodsId;
+		this.userHead = userHead;
+		this.userIntegral = userIntegral;
+	}
+
+	public User() {
+	}
+	
+	
+    
 }
