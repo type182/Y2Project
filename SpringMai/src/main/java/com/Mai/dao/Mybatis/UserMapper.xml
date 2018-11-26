@@ -2,6 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.Mai.dao.Mybatis.UserMapper" >
   <!-- 用户信息操作模板 -->
+  <select id="UserLoder" resultType="com.Mai.pojo.Mybatis.User">
+  	<!-- 用户的登陆 -->
+  	SELECT
+		* 
+	FROM
+		`user` 
+	WHERE
+		( user_name = #{name} AND user_pwd = #{pawss} ) 
+		OR ( user_phone = #{name} AND user_pwd = #{pawss} ) 
+		OR ( user_email = #{name} AND user_pwd = #{pawss} ) 
+  </select>
+  
+  <insert id="UserInsert" parameterType="com.Mai.pojo.Mybatis.User">
+  	<!-- 用户的注册 -->
+  	insert INTO `user` VALUE(NULL,#{userName},#{userPwd}
+  		<trim prefix=",">
+  			<if test="userPhone!=null and userPhone!=''">
+  				#{serPhone}
+  			</if>
+  			<if test="userEmail!=null and userEmail!=''">
+  				#{userEmail}
+  			</if>
+  		</trim>
+  	)
+  </insert>
+  
+  
+  
+  
   
   
   <!-- 用户消费操作模板 -->

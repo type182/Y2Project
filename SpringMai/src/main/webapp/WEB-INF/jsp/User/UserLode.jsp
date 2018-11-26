@@ -1,12 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html>
 	<head>
-		<meta charset="GBK">
+		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 		<title>欢迎登录</title>
 		<link rel="icon" href="//www.jd.com/favicon.ico">
 		<link type="text/css" rel="stylesheet" href="//misc.360buyimg.com/user/passport/1.0.0/??/widget/base/base.css,widget/common-2016-1124/common-2016-1124.css,/widget/login-form-2018-0827/login-form-2018-0827.css,/widget/login-banner/login-banner.css,/widget/safe-step/safe-step.css,/widget/foreign-number-layer-170524/foreign-number-layer-170524.css"
 		 source="widget">
 		<link type="text/css" rel="stylesheet" href="//misc.360buyimg.com/user/passport/1.0.0/css/tinyscrollbar-170524.css">
+		<script src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
+		<script>
+		$(function(){
+			$("#formlogin").submit(function(){
+				var name = $("#loginname").val();
+				var pawss = $("#nloginpwd").val();
+				if((name=="" || name==null) || (pawss=="" || pawss==null) ){
+					$(".cont-wrapper p").text("我们肯定得做这基础的非空验证啊 SB")
+					return false;
+				}else{
+					return true;
+				}
+				
+			})
+			$(".clear-btn").click(function(){
+				$(this).prev().val("");
+			})
+		})
+		</script>
 	</head>
 	<body>
 		<style>
@@ -30,23 +51,42 @@
 						<div class="tips-wrapper">
 							<div class="tips-inner">
 								<div class="cont-wrapper"><i class="icon-tips"></i>
-									<p>这玩意你也不能这么傻布拉吉的玩是吧 ~ ~ ~ ~</p>
+									<p err="${msg.msg}">${msg.appContent}</p>
 								</div>
 							</div>
 						</div>
+						<script>
+							$(function(){
+								
+								$(".login-tab-l").click(function(){
+									$(".login-tab-l a").css("border-bottom","solid 3px red");
+									$(".login-tab-r a").css("border-bottom","0px");
+									$(".login-box").hide();
+									$(".qrcode-login").show();
+								})
+								$(".login-tab-r").click(function(){
+									$(".login-tab-r a").css("border-bottom","solid 3px red");
+									$(".login-tab-l a").css("border-bottom","0px");
+									$(".login-box").show();
+									$(".qrcode-login").hide();
+								})
+							})
+						</script>
+						<style>
+							.login-tab a{
+								padding-bottom: 10px;
+							}
+						</style>
 						<div class="login-tab login-tab-l">
-							<a href="javascript:void(0)" clstag="pageclick|keycount|login_pc_201804112|9" class=""> 扫码登录</a>
+							<a href="javascript:void(0)" style="border-bottom: solid 3px red;"> 扫码登录</a>
 						</div>
 						<div class="login-tab login-tab-r">
-							<a href="javascript:void(0)" clstag="pageclick|keycount|login_pc_201804112|10" class="checked" style="outline: rgb(109, 109, 109) none 0px;">账户登录</a>
+							<a href="javascript:void(0)" >账户登录</a>
 						</div>
-						<div class="login-box" style="display: block; visibility: visible;">
-							<div class="msg-wrap">
-								<div class="msg-error"><b></b>${msg}</div>
-							</div>
-							<div class="mc">
-								<div class="form">
-									<form id="formlogin" method="post" onsubmit="return false;">
+						<div class="login-box" style="display: none; visibility: visible;">
+							<div class="mc" >
+								<div class="form" style="margin-top: 51px;">
+									<form id="formlogin" action="loder" method="post">
 										<div class="item item-fore1">
 											<label for="loginname" class="login-label name-label"></label>
 											<input id="loginname" type="text" class="itxt" name="username" placeholder="邮箱/用户名/已验证手机">
@@ -55,7 +95,7 @@
 
 										<div id="entry" class="item item-fore2" style="visibility: visible;">
 											<label class="login-label pwd-label" for="nloginpwd"></label>
-											<input type="password" id="nloginpwd" name="userpwd" class="itxt itxt-error" placeholder="密码">
+											<input type="password" id="nloginpwd" name="pawss" class="itxt itxt-error" placeholder="密码">
 											<span class="clear-btn" style="display: inline;"></span>
 										</div>
 
@@ -65,16 +105,14 @@
 											<div class="safe">
 												<span></span>
 												<span class="forget-pw-safe">
-													<a href="//passport.jd.com/uc/links?tag=safe" class="" target="_blank" clstag="pageclick|keycount|login_pc_201804112|6"
-													 style="outline: rgb(109, 109, 109) none 0px;">忘记密码</a>
+													<a href="//passport.jd.com/uc/links?tag=safe" class="" target="_blank" style="outline: rgb(109, 109, 109) none 0px;">忘记密码</a>
 												</span>
 											</div>
 										</div>
 
 										<div class="item item-fore5">
 											<div class="login-btn">
-												<a href="javascript:;" class="btn-img btn-entry" id="loginsubmit" tabindex="6" clstag="pageclick|keycount|login_pc_201804112|12"
-												 data-code="" style="outline: rgb(109, 109, 109) none 0px;">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+												<button type="submit" class="btn-img btn-entry"  style="outline: rgb(109, 109, 109) none 0px; border: none;" id="loginsubmit">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
 											</div>
 										</div>
 									</form>
@@ -82,7 +120,7 @@
 							</div>
 						</div>
 
-						<div class="qrcode-login" style="display: none; visibility: visible;">
+						<div class="qrcode-login" style="display: block; visibility: visible;">
 							<div class="mc">
 								<div class="qrcode-error-2016" style="left: 0px; display: none;">
 									<div class="qrcode-error-mask">
@@ -92,7 +130,7 @@
 								</div>
 								<div class="qrcode-main">
 									<div class="qrcode-img" style="left: 64px;">
-										<img src="//qr.m.jd.com/show?appid=133&amp;size=147&amp;t=1542080994027" alt="">
+										<img src="http://127.0.0.1:8080/ImgeSource/QRcode.production?url=http://127.0.0.1:8080/User/LoderQurcode" alt="">
 										<div class="qrcode-error02 hide" id="J-qrcoderror"> <a href="#none"> <span class="error-icon"></span>
 												<div class="txt">网络开小差咯<span class="ml10">刷新二维码</span></div>
 											</a> </div>

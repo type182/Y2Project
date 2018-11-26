@@ -1,6 +1,6 @@
 package com.Mai.pojo.Mybatis;
 
-public class Collection {
+public class Collections {
     private Integer id;
 
     private Integer userid;

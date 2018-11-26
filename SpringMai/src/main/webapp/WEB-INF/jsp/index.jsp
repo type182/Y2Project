@@ -13,13 +13,21 @@
 		display: inline-block;
 	}
 </style>
-${s}
-<c:forEach items="${s}" var="d">
-	<ul>
-		<li>${d.name }</li>
-		<li>${d.id }</li>
-		<li>${d.sex }</li>
-	</ul>
-</c:forEach>
+<ul>
+	<li>${user.user_name}</li>
+	<li>${user.user_pwd}</li>
+	<li>${user.user_phone}</li>
+	<li>${user.user_email}</li>
+	<li>
+		<img alt="" src="http://www.mai.com:8080/resource${user.user_head}">
+	
+	</li>
+	<li>${user.user_integral}</li>
+
+</ul>
+
+
+
+
 </body>
 </html>

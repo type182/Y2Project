@@ -5,9 +5,6 @@ import com.Mai.pojo.Mybatis.User;
 public class UserMsg extends User {
 	String msg,AppContent,HTML;
 	//  错误消息机制    消息简介内容    附加HTML内容
-	
-	
-	
 	/**
 	 * 
 	 * @param msg  错误消息代码

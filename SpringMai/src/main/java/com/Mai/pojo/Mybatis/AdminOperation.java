@@ -1,17 +1,21 @@
 package com.Mai.pojo.Mybatis;
 
 import java.util.Date;
-
+/**
+ * 
+ * @author 管理员操作记录的实体类
+ *
+ */
 public class AdminOperation {
     private Integer id;
 
-    private Integer adminId;
+    private Integer adminId;  //管理员id
 
-    private Date time;
+    private Date time;  //操作时间
 
-    private String reason;
+    private String reason;  //操作理由
 
-    private String log;
+    private String log;  //操作日志
 
     public Integer getId() {
         return id;

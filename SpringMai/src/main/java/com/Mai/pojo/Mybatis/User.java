@@ -4,104 +4,94 @@ package com.Mai.pojo.Mybatis;
 public class User{
     private Integer id;  //用户id
 
-    private String userName; //用户名
+    private String user_name; //用户名
 
-    private String userPwd;  //用户密码
+    private String user_pwd;  //用户密码
 
-    private String userPhone;  //用户手机
+    private String user_phone;  //用户手机
 	   
-    private String userEmail; //用户邮箱
+    private String user_email; //用户邮箱
 
-    private Integer userDeliverGoodsId; //收获地址
 
-    private String userHead;  //用户头像地址
+    private String user_head;  //用户头像地址
 
-    private Integer userIntegral;  //用户金币
+    private Integer user_integral;  //用户金币
 
+   
     public Integer getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public String getUser_name() {
+		return user_name;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
 
-    public String getUserPwd() {
-        return userPwd;
-    }
+	public String getUser_pwd() {
+		return user_pwd;
+	}
 
-    public void setUserPwd(String userPwd) {
-        this.userPwd = userPwd == null ? null : userPwd.trim();
-    }
+	public void setUser_pwd(String user_pwd) {
+		this.user_pwd = user_pwd;
+	}
 
-    public String getUserPhone() {
-        return userPhone;
-    }
+	public String getUser_phone() {
+		return user_phone;
+	}
 
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone == null ? null : userPhone.trim();
-    }
+	public void setUser_phone(String user_phone) {
+		this.user_phone = user_phone;
+	}
 
-    public String getUserEmail() {
-        return userEmail;
-    }
+	public String getUser_email() {
+		return user_email;
+	}
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail == null ? null : userEmail.trim();
-    }
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
 
-    public Integer getUserDeliverGoodsId() {
-        return userDeliverGoodsId;
-    }
+	public String getUser_head() {
+		return user_head;
+	}
 
-    public void setUserDeliverGoodsId(Integer userDeliverGoodsId) {
-        this.userDeliverGoodsId = userDeliverGoodsId;
-    }
+	public void setUser_head(String user_head) {
+		this.user_head = user_head;
+	}
 
-    public String getUserHead() {
-        return userHead;
-    }
+	public Integer getUser_integral() {
+		return user_integral;
+	}
 
-    public void setUserHead(String userHead) {
-        this.userHead = userHead == null ? null : userHead.trim();
-    }
+	public void setUser_integral(Integer user_integral) {
+		this.user_integral = user_integral;
+	}
 
-    public Integer getUserIntegral() {
-        return userIntegral;
-    }
-
-    public void setUserIntegral(Integer userIntegral) {
-        this.userIntegral = userIntegral;
-    }
-    /**
+	/**
      * 
      * @param id  用户id
      * @param userName   用户名
      * @param userPwd   用户密码
      * @param userPhone  用户手机
      * @param userEmail  用户邮箱
-     * @param userDeliverGoodsId  用户收获地址
      * @param userHead  用户头像
      * @param userIntegral  用户余额
      */
-	public User(Integer id, String userName, String userPwd, String userPhone, String userEmail,
-			Integer userDeliverGoodsId, String userHead, Integer userIntegral) {
+	public User(Integer id, String userName, String userPwd, String userPhone, String userEmail, String userHead, Integer userIntegral) {
 		this.id = id;
-		this.userName = userName;
-		this.userPwd = userPwd;
-		this.userPhone = userPhone;
-		this.userEmail = userEmail;
-		this.userDeliverGoodsId = userDeliverGoodsId;
-		this.userHead = userHead;
-		this.userIntegral = userIntegral;
+		this.user_name = userName;
+		this.user_pwd = userPwd;
+		this.user_phone = userPhone;
+		this.user_email = userEmail;
+		this.user_head = userHead;
+		this.user_integral = userIntegral;
 	}
 
 	public User() {

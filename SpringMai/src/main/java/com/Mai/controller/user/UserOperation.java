@@ -2,15 +2,18 @@ package com.Mai.controller.user;
 
 import javax.servlet.http.*;
 
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.Mai.HTML.UserHTML;
 import com.Mai.pojo.Mybatis.User;
 import com.Mai.pojo.Mybatis.Masg.UserMsg;
 import com.Mai.pojo.Mybatis.abstracts.UserAbstract;
-import com.Mai.service.mysql.User_Operation_Service;
+import com.Mai.service.mysql.User.UserOpService;
 /**
  * 
  * @author 用户操作的控制器1
@@ -25,21 +28,47 @@ import com.Mai.service.mysql.User_Operation_Service;
  */
 @Controller
 @RequestMapping("/User")
-public class User_Operation {
+public class UserOperation {
 	@Autowired
-	User_Operation_Service service;
+	UserOpService service; // 用户信息的Service
+	
+	@RequestMapping("/UserLode.html")
+	public String toUserLode(Model model) {model.addAttribute("msg",new UserMsg("0 OK", "欢迎MaiMai登陆", "")); return "/User/UserLode";}
+	@RequestMapping("/index.html")
+	public String toIndex(Model model) { return "index";}
+	
 	
 	
 	/**
-	 * 用户的登陆
+	 * 用户的登陆 普通登陆
 	 * @param username 用户名/邮箱/手机号
 	 * @param userpaw 密码
 	 * @return
 	 */
 	@RequestMapping("/loder")
-	public String Loder(Model model,String username,String userpaw) {
-		return "index";
+	public String Loder(Model mode,HttpSession session,String username,String pawss) {
+		try {
+			User loder = service.Loder(username, pawss);
+			session.setAttribute("user", loder);
+			System.out.println(loder);
+			return "redirect:index.html";
+		} catch (Exception e) {
+			UserMsg user = new UserMsg("0X001", "用户登陆异常: 你登陆的用户名或者密码错误", UserHTML.SELECT_REGISTRATION_TYPE);
+			mode.addAttribute("msg", user);
+			e.printStackTrace();
+			return "redirect:UserLode.html";
+		}
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping("/register")
 	public String Register(HttpSession session,UserAbstract abstract1) {
