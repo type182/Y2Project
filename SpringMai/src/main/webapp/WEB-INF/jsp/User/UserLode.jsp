@@ -130,7 +130,7 @@
 								</div>
 								<div class="qrcode-main">
 									<div class="qrcode-img" style="left: 64px;">
-										<img src="http://127.0.0.1:8080/ImgeSource/QRcode.production?url=http://127.0.0.1:8080/User/LoderQurcode" alt="">
+										<img src="http://www.maimai.com/ImgeSource/QRcode.production?url=http://127.0.0.1:8080/User/LoderQurcode" alt="">
 										<div class="qrcode-error02 hide" id="J-qrcoderror"> <a href="#none"> <span class="error-icon"></span>
 												<div class="txt">网络开小差咯<span class="ml10">刷新二维码</span></div>
 											</a> </div>
@@ -142,7 +142,7 @@
 										<li class="fore1">
 											<span>打开</span>
 											<a href="/uc/links?tag=apps" target="_blank" clstag="pageclick|keycount|201607144|9">
-												<span class="red">手机京东</span></a>
+												<span class="red">Phon</span></a>
 										</li>
 										<li>扫描二维码</li>
 									</ul>

@@ -19,7 +19,7 @@
 	<li>${user.user_phone}</li>
 	<li>${user.user_email}</li>
 	<li>
-		<img alt="" src="http://www.mai.com:8080/resource${user.user_head}">
+		<img alt="" src="http://www.mai.com/resource${user.user_head}">
 	
 	</li>
 	<li>${user.user_integral}</li>

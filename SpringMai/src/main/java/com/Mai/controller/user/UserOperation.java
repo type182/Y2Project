@@ -33,7 +33,12 @@ public class UserOperation {
 	UserOpService service; // 用户信息的Service
 	
 	@RequestMapping("/UserLode.html")
-	public String toUserLode(Model model) {model.addAttribute("msg",new UserMsg("0 OK", "欢迎MaiMai登陆", "")); return "/User/UserLode";}
+	public String toUserLode(Model model) {
+		if (!model.containsAttribute("msg")) {
+			model.addAttribute("msg",new UserMsg("0 OK", "欢迎MaiMai登陆", ""));
+		}
+		return "/User/UserLode";
+	}
 	@RequestMapping("/index.html")
 	public String toIndex(Model model) { return "index";}
 	
@@ -50,13 +55,15 @@ public class UserOperation {
 		try {
 			User loder = service.Loder(username, pawss);
 			session.setAttribute("user", loder);
-			System.out.println(loder);
+			if (loder==null) {
+				throw new Exception("用户名密码错误异常");
+			}
 			return "redirect:index.html";
 		} catch (Exception e) {
 			UserMsg user = new UserMsg("0X001", "用户登陆异常: 你登陆的用户名或者密码错误", UserHTML.SELECT_REGISTRATION_TYPE);
 			mode.addAttribute("msg", user);
 			e.printStackTrace();
-			return "redirect:UserLode.html";
+			return toUserLode(mode);
 		}
 		
 	}
