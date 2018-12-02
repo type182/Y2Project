@@ -1,11 +1,11 @@
 @echo off
-git fetch origin  
 
-git branch -a
+git fetch origin master
 
-git rebase master
+git log -p master..origin/master
 
-git log
+git merge origin/master
 
+git pull origin master 
 
 pause
