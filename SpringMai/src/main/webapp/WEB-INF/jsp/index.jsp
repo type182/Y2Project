@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>首页</title>
 </head>
 <body>
 <style>
@@ -14,16 +14,16 @@
 	}
 </style>
 <ul>
-	<li>${user.user_name}</li>
-	<li>${user.user_pwd}</li>
-	<li>${user.user_phone}</li>
-	<li>${user.user_email}</li>
+	<li>用户名: ${user.user_name}</li>
+	<li>用户密码: ${user.user_pwd}</li>
+	<li>用户手机号: ${user.user_phone}</li>
+	<li>用户邮箱: ${user.user_email}</li>
 	<li>
-		<img alt="" src="http://www.mai.com/resource${user.user_head}">
+		用户头像: <img width="50" height="50" alt="" src="http://www.mai.com/resource${user.user_head}">
 	
 	</li>
-	<li>${user.user_integral}</li>
-
+	<li>用户剩余金币: ${user.user_integral}</li>
+	
 </ul>
 
 

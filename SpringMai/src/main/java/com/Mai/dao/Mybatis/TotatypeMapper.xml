@@ -55,4 +55,7 @@
     set tataltype_name = #{tataltypeName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="query" resultMap="BaseResultMap">
+  	SELECT * FROM totatype
+  </select>
 </mapper>

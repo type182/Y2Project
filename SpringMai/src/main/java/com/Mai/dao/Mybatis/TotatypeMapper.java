@@ -1,17 +1,19 @@
 package com.Mai.dao.Mybatis;
 
+import java.util.List;
+
 import com.Mai.pojo.Mybatis.Totatype;
 
 public interface TotatypeMapper {
-    int deleteByPrimaryKey(Integer id);
+	public int deleteByPrimaryKey(Integer id);
 
-    int insert(Totatype record);
+    public int insert(Totatype record);
 
-    int insertSelective(Totatype record);
+    public int insertSelective(Totatype record);
+    public List<Totatype> query();
+    public Totatype selectByPrimaryKey(Integer id);
 
-    Totatype selectByPrimaryKey(Integer id);
+    public int updateByPrimaryKeySelective(Totatype record);
 
-    int updateByPrimaryKeySelective(Totatype record);
-
-    int updateByPrimaryKey(Totatype record);
+    public int updateByPrimaryKey(Totatype record);
 }

@@ -1,9 +1,13 @@
 package com.Mai.pojo.Mybatis;
-
+/**
+ * 
+ * @author 总分类
+ *
+ */
 public class Totatype {
-    private Integer id;
+    private Integer id; //分类id
 
-    private String tataltypeName;
+    private String tataltypeName;  //分类名
 
     public Integer getId() {
         return id;

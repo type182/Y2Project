@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.Mai.HTML.UserHTML;
+import com.Mai.Util.EmilUtil;
+import com.Mai.Util.SerializableUtil;
 import com.Mai.pojo.Mybatis.User;
 import com.Mai.pojo.Mybatis.Masg.UserMsg;
 import com.Mai.pojo.Mybatis.abstracts.UserAbstract;
@@ -31,7 +33,7 @@ import com.Mai.service.mysql.User.UserOpService;
 public class UserOperation {
 	@Autowired
 	UserOpService service; // 用户信息的Service
-	
+	//回到用户注册
 	@RequestMapping("/UserLode.html")
 	public String toUserLode(Model model) {
 		if (!model.containsAttribute("msg")) {
@@ -39,10 +41,16 @@ public class UserOperation {
 		}
 		return "/User/UserLode";
 	}
+	
+	
+	//回到首页
 	@RequestMapping("/index.html")
 	public String toIndex(Model model) { return "index";}
 	
-	
+	@RequestMapping("/register.html")
+	public String ToregisterEmail() {
+		return "/User/register" ;
+	}
 	
 	/**
 	 * 用户的登陆 普通登陆
@@ -76,24 +84,69 @@ public class UserOperation {
 	
 	
 	
-	
+	/**
+	 *   手机号注册
+	 * @param session  
+	 * @param model
+	 * @param abstract1  注册前的用户
+	 * @return  
+	 * @throws Exception 
+	 */
 	@RequestMapping("/register")
-	public String Register(HttpSession session,UserAbstract abstract1) {
-		User getUser = abstract1.GetUser();
-		if (getUser instanceof UserMsg) {
-			session.setAttribute("Err", getUser);
-			return "/opt/abs/Err";
+	public String Register(HttpSession session,Model model , UserAbstract abstract1) throws Exception {
+		Integer type = abstract1.getType();
+		
+		if (type==2) {
+			String Code = "<h1 style=\"color:red;\">恭喜你在MaiMai网注册成功!:<a href=\"http://www.maimai.com/User/usermail?username="+abstract1.getUsername()+"&type=2&email="+abstract1.getEmail()+"&userPwd="+abstract1.getUserPwd()+"\">点击注册</a></h1>";
+			try {
+				EmilUtil.SendMail(abstract1.getEmail(), Code);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			model.addAttribute("searuser", abstract1);
+			return "User/seelp";
 		}else {
-			session.setAttribute("User", getUser);
-			
-			// Service     方法
-			
-			
-			
-			return "index";
+			abstract1.setThisuser(true);
+			User getUser = abstract1.GetUser();
+			if (getUser instanceof UserMsg) {
+				model.addAttribute("Err", getUser);
+				return "opt/abs/Err";
+			}else {
+				return userservic(session,model,abstract1);
+			}
 		}
+		
+		
 	}
 	
+	
+	
+	/**
+	 * 用户的邮箱注册
+	 * @param session
+	 * @param code
+	 * @return   回到首页进行
+	 * @throws Exception 
+	 */
+	@RequestMapping("/usermail")
+	public String UserMail(HttpSession session,Model model, UserAbstract abstract1) throws Exception {
+		
+		return userservic(session,model,abstract1);
+	}
+	
+	public String userservic(HttpSession session,Model model,UserAbstract abstract1) throws Exception {
+		User getUser = abstract1.GetUser();
+		
+		if(service.UserRegister(getUser)) {
+			getUser = service.Loder(getUser.getUser_name(), getUser.getUser_pwd());
+			session.setAttribute("user", getUser);
+		}else {
+			abstract1.setType(15);
+			model.addAttribute("Err", abstract1.GetUser());
+			return "opt/abs/Err";
+		}
+		return "index";
+	}
 	
 	
 	

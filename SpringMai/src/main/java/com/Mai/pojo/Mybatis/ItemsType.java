@@ -1,9 +1,13 @@
 package com.Mai.pojo.Mybatis;
-
+/**
+ * 
+ * @author 订单状态
+ *
+ */
 public class ItemsType {
-    private Integer id;
+    private Integer id; //状态id
 
-    private String statusName;
+    private String statusName;//状态名
 
     public Integer getId() {
         return id;

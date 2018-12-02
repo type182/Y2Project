@@ -1,11 +1,17 @@
 package com.Mai.pojo.Mybatis;
-
+/**
+ * 
+ * @author 第三级分类
+ * 	参数
+ *
+ */
 public class Barnd {
-    private Integer id;
+    private Integer id; //参数id
 
-    private String name;
+    private String name; //参数名
 
-    private Integer subclass;
+    private Integer subclass; //二级分类的id
+    
 
     public Integer getId() {
         return id;

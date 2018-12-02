@@ -34,8 +34,8 @@ public class EmilUtil {
 		
 		message.setSubject("来自MaiMai网的用户注册激活邮件");
 		
-		message.setContent("<h1>激活吗?<a href='http://192.168.151.101/Tom/serven?code='>"+"http://192.168.151.101/Tom/serven?code="+code+"</a></h1>","text/html; charset=UTF-8");
-		
+		message.setContent(code,"text/html; charset=UTF-8");
+		System.err.println("验证码成功发出:   "+code);
 		
 		Transport.send(message);
 	}

@@ -170,7 +170,7 @@
 								</li>
 								<li class="extra-r">
 									<div>
-										<div class="regist-link"><a href="//reg.jd.com/reg/person?ReturnUrl=http%3A%2F%2Fwww.jd.com" clstag="pageclick|keycount|login_pc_201804112|5"
+										<div class="regist-link"><a href="register.html"
 											 target="_blank"><b></b>立即注册</a></div>
 									</div>
 								</li>
