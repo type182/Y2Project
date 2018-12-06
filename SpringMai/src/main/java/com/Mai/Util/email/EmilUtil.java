@@ -1,4 +1,4 @@
-package com.Mai.Util;
+package com.Mai.Util.email;
 
 import java.util.Properties;
 

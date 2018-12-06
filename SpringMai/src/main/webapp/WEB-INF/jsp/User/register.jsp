@@ -37,7 +37,7 @@
 			<!-- widget reg-steps begin -->
 			<div class="main ">
 				<div class="reg-form">
-					<form action="register" id="register-form" method="POST">
+					<form action="register" id="register-form" method="GET">
 						<div id="step1-wrap">
 							<style>
 								.form-item-valid input{
@@ -112,8 +112,8 @@
 								<div class="form-item form-item-phone">
 									<label class="select-country" id="select-country" country_id="0086" style="border-top: 1px solid rgb(221, 221, 221); border-right: none rgb(221, 221, 221); border-bottom: 1px solid rgb(221, 221, 221); border-left: 1px solid rgb(221, 221, 221); border-image: initial;">邮箱注册<a href="javascript:void(0) " class="arrow"></a></label>
 									<div class="item-input-wrap form-item-valid" style="border: 1px solid rgb(221, 221, 221);">
-										<txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: Arial; color: rgb(204, 204, 204); display: none;">建议使用常用邮箱</txt><input
-										 type="text" id="emails" name="email" class="field ignore">
+										<txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: Arial; color: rgb(204, 204, 204); display: none;">建议使用常用邮箱</txt>
+										<input type="text" id="emails" name="userprotected" class="field ignore">
 										 <text>
 											
 										</text>
@@ -130,7 +130,7 @@
 										<txt style="position: absolute; z-index: 2; line-height: 46px; margin-left: 20px; margin-top: 1px; font-size: 14px; font-family: Arial; color: rgb(204, 204, 204); display: none;">建议使用常用手机</txt>
 										
 										<input
-										 type="text" id="phone"  name="phon" class="field ignore">
+										 type="text" id="phone"  name="userprotected" class="field ignore">
 										 <text>
 											
 										</text>

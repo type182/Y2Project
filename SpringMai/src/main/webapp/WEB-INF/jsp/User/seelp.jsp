@@ -8,9 +8,9 @@
 </head>
 <body>
 	<h3>
-		<a href="${searuser.email }">
+		<%-- <a href="${searuser.user }">
 			点击跳转你的邮箱
-		</a>
+		</a> --%>
 		<br/>
 		<p>用户名:${searuser.username}</p>
 		<p>密　码:${searuser.userPwd }</p>

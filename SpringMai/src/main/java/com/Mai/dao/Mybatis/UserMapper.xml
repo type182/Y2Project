@@ -16,16 +16,22 @@
   
   <insert id="UserInsert" parameterType="com.Mai.pojo.Mybatis.User">
   	<!-- 用户的注册 -->
-  	insert INTO `user` VALUE(NULL,#{userName},#{userPwd}
+  	insert INTO `user` VALUE(NULL,#{user_name},#{user_pwd}
   		<trim prefix=",">
-  			<if test="userPhone!=null and userPhone!=''">
-  				#{serPhone}
+  			<if test="user_phone!=null and user_phone!=''">
+  				#{ser_phone},
   			</if>
-  			<if test="userEmail!=null and userEmail!=''">
-  				#{userEmail}
+  			<if test="user_phone==null or user_phone==''">
+  				null,
+  			</if>
+  			<if test="user_email!=null and user_email!=''">
+  				#{user_email},
+  			</if>
+  			<if test="user_email==null or user_email==''">
+  				null,
   			</if>
   		</trim>
-  	)
+  	default,default,default);
   </insert>
   
   

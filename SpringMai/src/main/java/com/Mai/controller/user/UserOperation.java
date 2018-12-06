@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.Mai.HTML.UserHTML;
-import com.Mai.Util.EmilUtil;
 import com.Mai.Util.SerializableUtil;
+import com.Mai.Util.email.EmilUtil;
 import com.Mai.pojo.Mybatis.User;
 import com.Mai.pojo.Mybatis.Masg.UserMsg;
 import com.Mai.pojo.Mybatis.abstracts.UserAbstract;
@@ -93,20 +93,23 @@ public class UserOperation {
 	 * @throws Exception 
 	 */
 	@RequestMapping("/register")
+	//注册分发组件
+	//  注册邮箱 注册手机
 	public String Register(HttpSession session,Model model , UserAbstract abstract1) throws Exception {
 		Integer type = abstract1.getType();
 		
 		if (type==2) {
-			String Code = "<h1 style=\"color:red;\">恭喜你在MaiMai网注册成功!:<a href=\"http://www.maimai.com/User/usermail?username="+abstract1.getUsername()+"&type=2&email="+abstract1.getEmail()+"&userPwd="+abstract1.getUserPwd()+"\">点击注册</a></h1>";
+			//配置邮箱注册验证码
+			String Code = "<h1 style=\"color:red;\">恭喜你在MaiMai网注册成功!:<a href=\"http://www.maimai.com/User/usermail?username="+abstract1.getUsername()+"&type=2&userprotected="+abstract1.getUserprotected()+"&userPwd="+abstract1.getUserPwd()+"\">点击注册</a></h1>";
 			try {
-				EmilUtil.SendMail(abstract1.getEmail(), Code);
+				//启用邮箱
+				EmilUtil.SendMail(abstract1.getUserprotected(), Code);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			model.addAttribute("searuser", abstract1);
 			return "User/seelp";
 		}else {
-			abstract1.setThisuser(true);
 			User getUser = abstract1.GetUser();
 			if (getUser instanceof UserMsg) {
 				model.addAttribute("Err", getUser);
@@ -133,7 +136,14 @@ public class UserOperation {
 		
 		return userservic(session,model,abstract1);
 	}
-	
+	/**
+	 *  用户的注册
+	 * @param session
+	 * @param model
+	 * @param abstract1
+	 * @return
+	 * @throws Exception
+	 */
 	public String userservic(HttpSession session,Model model,UserAbstract abstract1) throws Exception {
 		User getUser = abstract1.GetUser();
 		

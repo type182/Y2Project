@@ -12,50 +12,13 @@ import com.Mai.pojo.Mybatis.Masg.UserMsg;
  *
  */
 public class UserAbstract implements Serializable{
-	 protected String userprotected; 
+	 protected String userprotected; //手机号或者邮箱号
 	 protected String username;//用户名
 	 protected String userPwd;  //用户密码
 	 private Integer type;  // 注册类型的标识: 1 手机注册 2 邮箱注册
-	 private boolean thisuser=false; //是否注册成功
-	 private String userver; // 用户的验证码
-	 private String email; //用户的邮箱账号
-	 private String phon;  //用户的手机号
 	 
 	 
 	 
-	 
-	public boolean getThisuser() {
-		return thisuser;
-	}
-	public String getPhon() {
-		return phon;
-	}
-
-	public void setPhon(String phon) {
-		this.phon = phon;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getUserver() {
-		return userver;
-	}
-
-	public void setUserver(String userver) {
-		this.userver = userver;
-	}
-
-	
-
-	public void setThisuser(boolean thisuser) {
-		this.thisuser = thisuser;
-	}
 
 	public String getUsername() {
 		return username;
