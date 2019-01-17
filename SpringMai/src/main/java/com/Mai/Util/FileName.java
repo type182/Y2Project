@@ -9,7 +9,11 @@ import javax.xml.crypto.Data;
 import com.Mai.Util.overall.Bs64;
 import com.Mai.Util.overall.CtententPage;
 import com.Mai.Util.overall.TimesOut;
-
+/**
+ * 
+ * @author 字符串生产器
+ *	
+ */
 public class FileName {
 	
 	/**

@@ -4,7 +4,7 @@
 git add *
 
 
-git commit -m 'Type'
+git commit -m '000'
 
 
 

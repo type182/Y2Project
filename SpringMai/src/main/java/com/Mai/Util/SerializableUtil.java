@@ -5,7 +5,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
+/**
+ * 
+ * @author 序列化机制
+ *
+ */
 public class SerializableUtil {
 	public SerializableUtil() {
     }
