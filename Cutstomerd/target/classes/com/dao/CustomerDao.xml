@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.CustomerDao" >
+	<select id="CutstomerLoder" resultType="com.pojo.cutstomer">
+		SELECT cu.id,cu.`sdk`,cu.`pawss`,bs.ps_name AS `itname`,bs.title FROM cutstomer cu ,business bs WHERE cu.businessid = bs.id
+			AND cu.sdk=#{sdk} AND cu.`pawss` = #{pawss} 
+	</select>
+	<select id="CutstomerId" resultType="com.pojo.cutstomer">
+		SELECT cu.id,cu.`sdk`,cu.`pawss`,bs.ps_name AS `itname`,bs.title FROM cutstomer cu ,business bs WHERE cu.businessid = bs.id
+			AND cu.sdk=#{sdk}
+	</select>
+	
+	
+	<select id="userGetid" resultType="com.pojo.User">
+		SELECT * FROM `user` WHERE id = #{sdk}	
+	</select>
+
+</mapper>
