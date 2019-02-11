@@ -3,10 +3,10 @@
 <mapper namespace="com.Mai.dao.Mybatis.TotatypeMapper" >
   <resultMap id="BaseResultMap" type="com.Mai.pojo.Mybatis.Totatype" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="tataltype_name" property="tataltypeName" jdbcType="VARCHAR" />
+    <result column="tataltypeName" property="tataltypename" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, tataltype_name
+    id, tataltypeName
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -19,8 +19,8 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.Mai.pojo.Mybatis.Totatype" >
-    insert into totatype (id, tataltype_name)
-    values (#{id,jdbcType=INTEGER}, #{tataltypeName,jdbcType=VARCHAR})
+    insert into totatype (id, tataltypeName)
+    values (#{id,jdbcType=INTEGER}, #{tataltypename,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.Mai.pojo.Mybatis.Totatype" >
     insert into totatype
@@ -28,34 +28,31 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="tataltypeName != null" >
-        tataltype_name,
+      <if test="tataltypename != null" >
+        tataltypeName,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="tataltypeName != null" >
-        #{tataltypeName,jdbcType=VARCHAR},
+      <if test="tataltypename != null" >
+        #{tataltypename,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.Mai.pojo.Mybatis.Totatype" >
     update totatype
     <set >
-      <if test="tataltypeName != null" >
-        tataltype_name = #{tataltypeName,jdbcType=VARCHAR},
+      <if test="tataltypename != null" >
+        tataltypeName = #{tataltypename,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.Mai.pojo.Mybatis.Totatype" >
     update totatype
-    set tataltype_name = #{tataltypeName,jdbcType=VARCHAR}
+    set tataltypeName = #{tataltypename,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <select id="query" resultMap="BaseResultMap">
-  	SELECT * FROM totatype
-  </select>
 </mapper>

@@ -9,21 +9,19 @@ public class Goods {
 
     private Double itempice;
 
-    private Integer goodsShopId;
+    private Integer shopid;
 
-    private Date goodsUploadTime;
+    private Date goodsuptim;
 
-    private Integer goodsBrand;
+    private Integer goodstype;
 
-    private Integer goodsType;
+    private Integer state;
 
-    private String goodsDetailed;
+    private Float popularity;
 
-    private Boolean goodsSetTheRecommended;
+    private String titleimage;
 
-    private String goodsResources;
-
-    private Integer goodsState;
+    private String goodsbrand;
 
     public Integer getId() {
         return id;
@@ -49,67 +47,59 @@ public class Goods {
         this.itempice = itempice;
     }
 
-    public Integer getGoodsShopId() {
-        return goodsShopId;
+    public Integer getShopid() {
+        return shopid;
     }
 
-    public void setGoodsShopId(Integer goodsShopId) {
-        this.goodsShopId = goodsShopId;
+    public void setShopid(Integer shopid) {
+        this.shopid = shopid;
     }
 
-    public Date getGoodsUploadTime() {
-        return goodsUploadTime;
+    public Date getGoodsuptim() {
+        return goodsuptim;
     }
 
-    public void setGoodsUploadTime(Date goodsUploadTime) {
-        this.goodsUploadTime = goodsUploadTime;
+    public void setGoodsuptim(Date goodsuptim) {
+        this.goodsuptim = goodsuptim;
     }
 
-    public Integer getGoodsBrand() {
-        return goodsBrand;
+    public Integer getGoodstype() {
+        return goodstype;
     }
 
-    public void setGoodsBrand(Integer goodsBrand) {
-        this.goodsBrand = goodsBrand;
+    public void setGoodstype(Integer goodstype) {
+        this.goodstype = goodstype;
     }
 
-    public Integer getGoodsType() {
-        return goodsType;
+    public Integer getState() {
+        return state;
     }
 
-    public void setGoodsType(Integer goodsType) {
-        this.goodsType = goodsType;
+    public void setState(Integer state) {
+        this.state = state;
     }
 
-    public String getGoodsDetailed() {
-        return goodsDetailed;
+    public Float getPopularity() {
+        return popularity;
     }
 
-    public void setGoodsDetailed(String goodsDetailed) {
-        this.goodsDetailed = goodsDetailed == null ? null : goodsDetailed.trim();
+    public void setPopularity(Float popularity) {
+        this.popularity = popularity;
     }
 
-    public Boolean getGoodsSetTheRecommended() {
-        return goodsSetTheRecommended;
+    public String getTitleimage() {
+        return titleimage;
     }
 
-    public void setGoodsSetTheRecommended(Boolean goodsSetTheRecommended) {
-        this.goodsSetTheRecommended = goodsSetTheRecommended;
+    public void setTitleimage(String titleimage) {
+        this.titleimage = titleimage == null ? null : titleimage.trim();
     }
 
-    public String getGoodsResources() {
-        return goodsResources;
+    public String getGoodsbrand() {
+        return goodsbrand;
     }
 
-    public void setGoodsResources(String goodsResources) {
-        this.goodsResources = goodsResources == null ? null : goodsResources.trim();
-    }
-
-    public Integer getGoodsState() {
-        return goodsState;
-    }
-
-    public void setGoodsState(Integer goodsState) {
-        this.goodsState = goodsState;
+    public void setGoodsbrand(String goodsbrand) {
+        this.goodsbrand = goodsbrand == null ? null : goodsbrand.trim();
     }
 }

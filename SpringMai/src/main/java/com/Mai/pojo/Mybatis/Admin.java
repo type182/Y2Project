@@ -1,16 +1,13 @@
 package com.Mai.pojo.Mybatis;
-/**
- * @author 管理员表
- */
+
 public class Admin {
-	// 管理员的id
     private Integer id;
-    // 管理员的名字
+
     private String name;
-    //管理员的 密码
+
     private String pwd;
-    // 管理员的头像地址
-    private String headPortrait;
+
+    private String headportrait;
 
     public Integer getId() {
         return id;
@@ -36,28 +33,11 @@ public class Admin {
         this.pwd = pwd == null ? null : pwd.trim();
     }
 
-    public String getHeadPortrait() {
-        return headPortrait;
+    public String getHeadportrait() {
+        return headportrait;
     }
 
-    public void setHeadPortrait(String headPortrait) {
-        this.headPortrait = headPortrait == null ? null : headPortrait.trim();
+    public void setHeadportrait(String headportrait) {
+        this.headportrait = headportrait == null ? null : headportrait.trim();
     }
-    /**
-     * 
-     * @param name 管理员的名字
-     * @param pwd 管理员的 密码
-     * @param headPortrait  管理员的头像地址可以选择不上传 有默认值在
-     */
-	public Admin(String name, String pwd, String headPortrait) {
-		this.id = null;
-		this.name = name;
-		this.pwd = pwd;
-		this.headPortrait = headPortrait;
-	}
-    public Admin() {
-	}
-    
-    
-    
 }

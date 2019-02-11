@@ -1,102 +1,83 @@
 package com.Mai.pojo.Mybatis;
 
+public class User {
+    private Integer id;
 
-public class User{
-    private Integer id;  //用户id
+    private String username;
 
-    private String user_name; //用户名
+    private String userpwd;
 
-    private String user_pwd;  //用户密码
+    private String userphone;
 
-    private String user_phone;  //用户手机
-	   
-    private String user_email; //用户邮箱
+    private String useremail;
 
+    private String userhead;
 
-    private String user_head;  //用户头像地址
+    private Integer userintegral;
 
-    private Integer user_integral;  //用户金币
+    private Integer usermoney;
 
-   
     public Integer getId() {
-		return id;
-	}
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public String getUser_name() {
-		return user_name;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
-	}
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
 
-	public String getUser_pwd() {
-		return user_pwd;
-	}
+    public String getUserpwd() {
+        return userpwd;
+    }
 
-	public void setUser_pwd(String user_pwd) {
-		this.user_pwd = user_pwd;
-	}
+    public void setUserpwd(String userpwd) {
+        this.userpwd = userpwd == null ? null : userpwd.trim();
+    }
 
-	public String getUser_phone() {
-		return user_phone;
-	}
+    public String getUserphone() {
+        return userphone;
+    }
 
-	public void setUser_phone(String user_phone) {
-		this.user_phone = user_phone;
-	}
+    public void setUserphone(String userphone) {
+        this.userphone = userphone == null ? null : userphone.trim();
+    }
 
-	public String getUser_email() {
-		return user_email;
-	}
+    public String getUseremail() {
+        return useremail;
+    }
 
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
-	}
+    public void setUseremail(String useremail) {
+        this.useremail = useremail == null ? null : useremail.trim();
+    }
 
-	public String getUser_head() {
-		return user_head;
-	}
+    public String getUserhead() {
+        return userhead;
+    }
 
-	public void setUser_head(String user_head) {
-		this.user_head = user_head;
-	}
+    public void setUserhead(String userhead) {
+        this.userhead = userhead == null ? null : userhead.trim();
+    }
 
-	public Integer getUser_integral() {
-		return user_integral;
-	}
+    public Integer getUserintegral() {
+        return userintegral;
+    }
 
-	public void setUser_integral(Integer user_integral) {
-		this.user_integral = user_integral;
-	}
+    public void setUserintegral(Integer userintegral) {
+        this.userintegral = userintegral;
+    }
 
-	/**
-     * 
-     * @param id  用户id
-     * @param userName   用户名
-     * @param userPwd   用户密码
-     * @param userPhone  用户手机
-     * @param userEmail  用户邮箱
-     * @param userHead  用户头像
-     * @param userIntegral  用户余额
-     */
-	public User(Integer id, String userName, String userPwd, String userPhone, String userEmail, String userHead, Integer userIntegral) {
-		this.id = id;
-		this.user_name = userName;
-		this.user_pwd = userPwd;
-		this.user_phone = userPhone;
-		this.user_email = userEmail;
-		this.user_head = userHead;
-		this.user_integral = userIntegral;
-	}
+    public Integer getUsermoney() {
+        return usermoney;
+    }
 
-	public User() {
-	}
-	
-	
-    
+    public void setUsermoney(Integer usermoney) {
+        this.usermoney = usermoney;
+    }
 }

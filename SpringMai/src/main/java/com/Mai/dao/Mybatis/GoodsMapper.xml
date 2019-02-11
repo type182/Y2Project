@@ -5,18 +5,17 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="itemname" property="itemname" jdbcType="VARCHAR" />
     <result column="itempice" property="itempice" jdbcType="DOUBLE" />
-    <result column="goods_shop_id" property="goodsShopId" jdbcType="INTEGER" />
-    <result column="goods_upload_time" property="goodsUploadTime" jdbcType="DATE" />
-    <result column="goods_brand" property="goodsBrand" jdbcType="INTEGER" />
-    <result column="goods_type" property="goodsType" jdbcType="INTEGER" />
-    <result column="goods_detailed" property="goodsDetailed" jdbcType="VARCHAR" />
-    <result column="goods_set_the_recommended" property="goodsSetTheRecommended" jdbcType="BIT" />
-    <result column="goods_resources" property="goodsResources" jdbcType="VARCHAR" />
-    <result column="goods_state" property="goodsState" jdbcType="INTEGER" />
+    <result column="ShopId" property="shopid" jdbcType="INTEGER" />
+    <result column="goodsUpTim" property="goodsuptim" jdbcType="DATE" />
+    <result column="goodsType" property="goodstype" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="popularity" property="popularity" jdbcType="REAL" />
+    <result column="titleImage" property="titleimage" jdbcType="VARCHAR" />
+    <result column="goodsBrand" property="goodsbrand" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, itemname, itempice, goods_shop_id, goods_upload_time, goods_brand, goods_type, 
-    goods_detailed, goods_set_the_recommended, goods_resources, goods_state
+    id, itemname, itempice, ShopId, goodsUpTim, goodsType, state, popularity, titleImage, 
+    goodsBrand
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -30,13 +29,13 @@
   </delete>
   <insert id="insert" parameterType="com.Mai.pojo.Mybatis.Goods" >
     insert into goods (id, itemname, itempice, 
-      goods_shop_id, goods_upload_time, goods_brand, 
-      goods_type, goods_detailed, goods_set_the_recommended, 
-      goods_resources, goods_state)
+      ShopId, goodsUpTim, goodsType, 
+      state, popularity, titleImage, 
+      goodsBrand)
     values (#{id,jdbcType=INTEGER}, #{itemname,jdbcType=VARCHAR}, #{itempice,jdbcType=DOUBLE}, 
-      #{goodsShopId,jdbcType=INTEGER}, #{goodsUploadTime,jdbcType=DATE}, #{goodsBrand,jdbcType=INTEGER}, 
-      #{goodsType,jdbcType=INTEGER}, #{goodsDetailed,jdbcType=VARCHAR}, #{goodsSetTheRecommended,jdbcType=BIT}, 
-      #{goodsResources,jdbcType=VARCHAR}, #{goodsState,jdbcType=INTEGER})
+      #{shopid,jdbcType=INTEGER}, #{goodsuptim,jdbcType=DATE}, #{goodstype,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER}, #{popularity,jdbcType=REAL}, #{titleimage,jdbcType=VARCHAR}, 
+      #{goodsbrand,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.Mai.pojo.Mybatis.Goods" >
     insert into goods
@@ -50,29 +49,26 @@
       <if test="itempice != null" >
         itempice,
       </if>
-      <if test="goodsShopId != null" >
-        goods_shop_id,
+      <if test="shopid != null" >
+        ShopId,
       </if>
-      <if test="goodsUploadTime != null" >
-        goods_upload_time,
+      <if test="goodsuptim != null" >
+        goodsUpTim,
       </if>
-      <if test="goodsBrand != null" >
-        goods_brand,
+      <if test="goodstype != null" >
+        goodsType,
       </if>
-      <if test="goodsType != null" >
-        goods_type,
+      <if test="state != null" >
+        state,
       </if>
-      <if test="goodsDetailed != null" >
-        goods_detailed,
+      <if test="popularity != null" >
+        popularity,
       </if>
-      <if test="goodsSetTheRecommended != null" >
-        goods_set_the_recommended,
+      <if test="titleimage != null" >
+        titleImage,
       </if>
-      <if test="goodsResources != null" >
-        goods_resources,
-      </if>
-      <if test="goodsState != null" >
-        goods_state,
+      <if test="goodsbrand != null" >
+        goodsBrand,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -85,29 +81,26 @@
       <if test="itempice != null" >
         #{itempice,jdbcType=DOUBLE},
       </if>
-      <if test="goodsShopId != null" >
-        #{goodsShopId,jdbcType=INTEGER},
+      <if test="shopid != null" >
+        #{shopid,jdbcType=INTEGER},
       </if>
-      <if test="goodsUploadTime != null" >
-        #{goodsUploadTime,jdbcType=DATE},
+      <if test="goodsuptim != null" >
+        #{goodsuptim,jdbcType=DATE},
       </if>
-      <if test="goodsBrand != null" >
-        #{goodsBrand,jdbcType=INTEGER},
+      <if test="goodstype != null" >
+        #{goodstype,jdbcType=INTEGER},
       </if>
-      <if test="goodsType != null" >
-        #{goodsType,jdbcType=INTEGER},
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
       </if>
-      <if test="goodsDetailed != null" >
-        #{goodsDetailed,jdbcType=VARCHAR},
+      <if test="popularity != null" >
+        #{popularity,jdbcType=REAL},
       </if>
-      <if test="goodsSetTheRecommended != null" >
-        #{goodsSetTheRecommended,jdbcType=BIT},
+      <if test="titleimage != null" >
+        #{titleimage,jdbcType=VARCHAR},
       </if>
-      <if test="goodsResources != null" >
-        #{goodsResources,jdbcType=VARCHAR},
-      </if>
-      <if test="goodsState != null" >
-        #{goodsState,jdbcType=INTEGER},
+      <if test="goodsbrand != null" >
+        #{goodsbrand,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -120,29 +113,26 @@
       <if test="itempice != null" >
         itempice = #{itempice,jdbcType=DOUBLE},
       </if>
-      <if test="goodsShopId != null" >
-        goods_shop_id = #{goodsShopId,jdbcType=INTEGER},
+      <if test="shopid != null" >
+        ShopId = #{shopid,jdbcType=INTEGER},
       </if>
-      <if test="goodsUploadTime != null" >
-        goods_upload_time = #{goodsUploadTime,jdbcType=DATE},
+      <if test="goodsuptim != null" >
+        goodsUpTim = #{goodsuptim,jdbcType=DATE},
       </if>
-      <if test="goodsBrand != null" >
-        goods_brand = #{goodsBrand,jdbcType=INTEGER},
+      <if test="goodstype != null" >
+        goodsType = #{goodstype,jdbcType=INTEGER},
       </if>
-      <if test="goodsType != null" >
-        goods_type = #{goodsType,jdbcType=INTEGER},
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
       </if>
-      <if test="goodsDetailed != null" >
-        goods_detailed = #{goodsDetailed,jdbcType=VARCHAR},
+      <if test="popularity != null" >
+        popularity = #{popularity,jdbcType=REAL},
       </if>
-      <if test="goodsSetTheRecommended != null" >
-        goods_set_the_recommended = #{goodsSetTheRecommended,jdbcType=BIT},
+      <if test="titleimage != null" >
+        titleImage = #{titleimage,jdbcType=VARCHAR},
       </if>
-      <if test="goodsResources != null" >
-        goods_resources = #{goodsResources,jdbcType=VARCHAR},
-      </if>
-      <if test="goodsState != null" >
-        goods_state = #{goodsState,jdbcType=INTEGER},
+      <if test="goodsbrand != null" >
+        goodsBrand = #{goodsbrand,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -151,14 +141,13 @@
     update goods
     set itemname = #{itemname,jdbcType=VARCHAR},
       itempice = #{itempice,jdbcType=DOUBLE},
-      goods_shop_id = #{goodsShopId,jdbcType=INTEGER},
-      goods_upload_time = #{goodsUploadTime,jdbcType=DATE},
-      goods_brand = #{goodsBrand,jdbcType=INTEGER},
-      goods_type = #{goodsType,jdbcType=INTEGER},
-      goods_detailed = #{goodsDetailed,jdbcType=VARCHAR},
-      goods_set_the_recommended = #{goodsSetTheRecommended,jdbcType=BIT},
-      goods_resources = #{goodsResources,jdbcType=VARCHAR},
-      goods_state = #{goodsState,jdbcType=INTEGER}
+      ShopId = #{shopid,jdbcType=INTEGER},
+      goodsUpTim = #{goodsuptim,jdbcType=DATE},
+      goodsType = #{goodstype,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      popularity = #{popularity,jdbcType=REAL},
+      titleImage = #{titleimage,jdbcType=VARCHAR},
+      goodsBrand = #{goodsbrand,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

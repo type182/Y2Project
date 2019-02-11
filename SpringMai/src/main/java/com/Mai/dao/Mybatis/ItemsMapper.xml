@@ -3,17 +3,16 @@
 <mapper namespace="com.Mai.dao.Mybatis.ItemsMapper" >
   <resultMap id="BaseResultMap" type="com.Mai.pojo.Mybatis.Items" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="order_no" property="orderNo" jdbcType="VARCHAR" />
-    <result column="order_goodsid" property="orderGoodsid" jdbcType="INTEGER" />
-    <result column="order_user_id" property="orderUserId" jdbcType="INTEGER" />
-    <result column="order_time" property="orderTime" jdbcType="DATE" />
-    <result column="order_arrival_time" property="orderArrivalTime" jdbcType="DATE" />
-    <result column="order_now_status" property="orderNowStatus" jdbcType="INTEGER" />
-    <result column="order_receiving_address_id" property="orderReceivingAddressId" jdbcType="INTEGER" />
+    <result column="orderNo" property="orderno" jdbcType="VARCHAR" />
+    <result column="goodsid" property="goodsid" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="orderTime" property="ordertime" jdbcType="DATE" />
+    <result column="arrivalTime" property="arrivaltime" jdbcType="DATE" />
+    <result column="orderNowStatus" property="ordernowstatus" jdbcType="INTEGER" />
+    <result column="addressId" property="addressid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, order_no, order_goodsid, order_user_id, order_time, order_arrival_time, order_now_status, 
-    order_receiving_address_id
+    id, orderNo, goodsid, userId, orderTime, arrivalTime, orderNowStatus, addressId
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,14 +25,12 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.Mai.pojo.Mybatis.Items" >
-    insert into items (id, order_no, order_goodsid, 
-      order_user_id, order_time, order_arrival_time, 
-      order_now_status, order_receiving_address_id
-      )
-    values (#{id,jdbcType=INTEGER}, #{orderNo,jdbcType=VARCHAR}, #{orderGoodsid,jdbcType=INTEGER}, 
-      #{orderUserId,jdbcType=INTEGER}, #{orderTime,jdbcType=DATE}, #{orderArrivalTime,jdbcType=DATE}, 
-      #{orderNowStatus,jdbcType=INTEGER}, #{orderReceivingAddressId,jdbcType=INTEGER}
-      )
+    insert into items (id, orderNo, goodsid, 
+      userId, orderTime, arrivalTime, 
+      orderNowStatus, addressId)
+    values (#{id,jdbcType=INTEGER}, #{orderno,jdbcType=VARCHAR}, #{goodsid,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{ordertime,jdbcType=DATE}, #{arrivaltime,jdbcType=DATE}, 
+      #{ordernowstatus,jdbcType=INTEGER}, #{addressid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.Mai.pojo.Mybatis.Items" >
     insert into items
@@ -41,91 +38,91 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="orderNo != null" >
-        order_no,
+      <if test="orderno != null" >
+        orderNo,
       </if>
-      <if test="orderGoodsid != null" >
-        order_goodsid,
+      <if test="goodsid != null" >
+        goodsid,
       </if>
-      <if test="orderUserId != null" >
-        order_user_id,
+      <if test="userid != null" >
+        userId,
       </if>
-      <if test="orderTime != null" >
-        order_time,
+      <if test="ordertime != null" >
+        orderTime,
       </if>
-      <if test="orderArrivalTime != null" >
-        order_arrival_time,
+      <if test="arrivaltime != null" >
+        arrivalTime,
       </if>
-      <if test="orderNowStatus != null" >
-        order_now_status,
+      <if test="ordernowstatus != null" >
+        orderNowStatus,
       </if>
-      <if test="orderReceivingAddressId != null" >
-        order_receiving_address_id,
+      <if test="addressid != null" >
+        addressId,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="orderNo != null" >
-        #{orderNo,jdbcType=VARCHAR},
+      <if test="orderno != null" >
+        #{orderno,jdbcType=VARCHAR},
       </if>
-      <if test="orderGoodsid != null" >
-        #{orderGoodsid,jdbcType=INTEGER},
+      <if test="goodsid != null" >
+        #{goodsid,jdbcType=INTEGER},
       </if>
-      <if test="orderUserId != null" >
-        #{orderUserId,jdbcType=INTEGER},
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
       </if>
-      <if test="orderTime != null" >
-        #{orderTime,jdbcType=DATE},
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=DATE},
       </if>
-      <if test="orderArrivalTime != null" >
-        #{orderArrivalTime,jdbcType=DATE},
+      <if test="arrivaltime != null" >
+        #{arrivaltime,jdbcType=DATE},
       </if>
-      <if test="orderNowStatus != null" >
-        #{orderNowStatus,jdbcType=INTEGER},
+      <if test="ordernowstatus != null" >
+        #{ordernowstatus,jdbcType=INTEGER},
       </if>
-      <if test="orderReceivingAddressId != null" >
-        #{orderReceivingAddressId,jdbcType=INTEGER},
+      <if test="addressid != null" >
+        #{addressid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.Mai.pojo.Mybatis.Items" >
     update items
     <set >
-      <if test="orderNo != null" >
-        order_no = #{orderNo,jdbcType=VARCHAR},
+      <if test="orderno != null" >
+        orderNo = #{orderno,jdbcType=VARCHAR},
       </if>
-      <if test="orderGoodsid != null" >
-        order_goodsid = #{orderGoodsid,jdbcType=INTEGER},
+      <if test="goodsid != null" >
+        goodsid = #{goodsid,jdbcType=INTEGER},
       </if>
-      <if test="orderUserId != null" >
-        order_user_id = #{orderUserId,jdbcType=INTEGER},
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
       </if>
-      <if test="orderTime != null" >
-        order_time = #{orderTime,jdbcType=DATE},
+      <if test="ordertime != null" >
+        orderTime = #{ordertime,jdbcType=DATE},
       </if>
-      <if test="orderArrivalTime != null" >
-        order_arrival_time = #{orderArrivalTime,jdbcType=DATE},
+      <if test="arrivaltime != null" >
+        arrivalTime = #{arrivaltime,jdbcType=DATE},
       </if>
-      <if test="orderNowStatus != null" >
-        order_now_status = #{orderNowStatus,jdbcType=INTEGER},
+      <if test="ordernowstatus != null" >
+        orderNowStatus = #{ordernowstatus,jdbcType=INTEGER},
       </if>
-      <if test="orderReceivingAddressId != null" >
-        order_receiving_address_id = #{orderReceivingAddressId,jdbcType=INTEGER},
+      <if test="addressid != null" >
+        addressId = #{addressid,jdbcType=INTEGER},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.Mai.pojo.Mybatis.Items" >
     update items
-    set order_no = #{orderNo,jdbcType=VARCHAR},
-      order_goodsid = #{orderGoodsid,jdbcType=INTEGER},
-      order_user_id = #{orderUserId,jdbcType=INTEGER},
-      order_time = #{orderTime,jdbcType=DATE},
-      order_arrival_time = #{orderArrivalTime,jdbcType=DATE},
-      order_now_status = #{orderNowStatus,jdbcType=INTEGER},
-      order_receiving_address_id = #{orderReceivingAddressId,jdbcType=INTEGER}
+    set orderNo = #{orderno,jdbcType=VARCHAR},
+      goodsid = #{goodsid,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=INTEGER},
+      orderTime = #{ordertime,jdbcType=DATE},
+      arrivalTime = #{arrivaltime,jdbcType=DATE},
+      orderNowStatus = #{ordernowstatus,jdbcType=INTEGER},
+      addressId = #{addressid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

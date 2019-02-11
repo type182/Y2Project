@@ -3,27 +3,27 @@ package com.Mai.pojo.Mybatis;
 public class Shop {
     private Integer id;
 
-    private String shopName;
+    private String shopname;
 
-    private Integer userId;
+    private Integer businessid;
 
-    private String shopAddress;
+    private String shopaddress;
 
-    private String shopUrl;
+    private String shopurl;
 
-    private Integer shopType;
+    private Integer shoptype;
 
-    private String shopCredit;
+    private String shopcredit;
 
-    private Integer shopHot;
+    private Integer shophot;
 
-    private Integer shopHeaderPicture;
+    private Integer headerpicture;
 
-    private String shopHomePageContent;
+    private String pagecontent;
 
-    private Integer shopSize;
+    private Integer shopsize;
 
-    private Integer shopOreSize;
+    private Integer orgsize;
 
     public Integer getId() {
         return id;
@@ -33,91 +33,91 @@ public class Shop {
         this.id = id;
     }
 
-    public String getShopName() {
-        return shopName;
+    public String getShopname() {
+        return shopname;
     }
 
-    public void setShopName(String shopName) {
-        this.shopName = shopName == null ? null : shopName.trim();
+    public void setShopname(String shopname) {
+        this.shopname = shopname == null ? null : shopname.trim();
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getBusinessid() {
+        return businessid;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setBusinessid(Integer businessid) {
+        this.businessid = businessid;
     }
 
-    public String getShopAddress() {
-        return shopAddress;
+    public String getShopaddress() {
+        return shopaddress;
     }
 
-    public void setShopAddress(String shopAddress) {
-        this.shopAddress = shopAddress == null ? null : shopAddress.trim();
+    public void setShopaddress(String shopaddress) {
+        this.shopaddress = shopaddress == null ? null : shopaddress.trim();
     }
 
-    public String getShopUrl() {
-        return shopUrl;
+    public String getShopurl() {
+        return shopurl;
     }
 
-    public void setShopUrl(String shopUrl) {
-        this.shopUrl = shopUrl == null ? null : shopUrl.trim();
+    public void setShopurl(String shopurl) {
+        this.shopurl = shopurl == null ? null : shopurl.trim();
     }
 
-    public Integer getShopType() {
-        return shopType;
+    public Integer getShoptype() {
+        return shoptype;
     }
 
-    public void setShopType(Integer shopType) {
-        this.shopType = shopType;
+    public void setShoptype(Integer shoptype) {
+        this.shoptype = shoptype;
     }
 
-    public String getShopCredit() {
-        return shopCredit;
+    public String getShopcredit() {
+        return shopcredit;
     }
 
-    public void setShopCredit(String shopCredit) {
-        this.shopCredit = shopCredit == null ? null : shopCredit.trim();
+    public void setShopcredit(String shopcredit) {
+        this.shopcredit = shopcredit == null ? null : shopcredit.trim();
     }
 
-    public Integer getShopHot() {
-        return shopHot;
+    public Integer getShophot() {
+        return shophot;
     }
 
-    public void setShopHot(Integer shopHot) {
-        this.shopHot = shopHot;
+    public void setShophot(Integer shophot) {
+        this.shophot = shophot;
     }
 
-    public Integer getShopHeaderPicture() {
-        return shopHeaderPicture;
+    public Integer getHeaderpicture() {
+        return headerpicture;
     }
 
-    public void setShopHeaderPicture(Integer shopHeaderPicture) {
-        this.shopHeaderPicture = shopHeaderPicture;
+    public void setHeaderpicture(Integer headerpicture) {
+        this.headerpicture = headerpicture;
     }
 
-    public String getShopHomePageContent() {
-        return shopHomePageContent;
+    public String getPagecontent() {
+        return pagecontent;
     }
 
-    public void setShopHomePageContent(String shopHomePageContent) {
-        this.shopHomePageContent = shopHomePageContent == null ? null : shopHomePageContent.trim();
+    public void setPagecontent(String pagecontent) {
+        this.pagecontent = pagecontent == null ? null : pagecontent.trim();
     }
 
-    public Integer getShopSize() {
-        return shopSize;
+    public Integer getShopsize() {
+        return shopsize;
     }
 
-    public void setShopSize(Integer shopSize) {
-        this.shopSize = shopSize;
+    public void setShopsize(Integer shopsize) {
+        this.shopsize = shopsize;
     }
 
-    public Integer getShopOreSize() {
-        return shopOreSize;
+    public Integer getOrgsize() {
+        return orgsize;
     }
 
-    public void setShopOreSize(Integer shopOreSize) {
-        this.shopOreSize = shopOreSize;
+    public void setOrgsize(Integer orgsize) {
+        this.orgsize = orgsize;
     }
 }

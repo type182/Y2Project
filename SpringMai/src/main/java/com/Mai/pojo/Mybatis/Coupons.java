@@ -9,15 +9,13 @@ public class Coupons {
 
     private Double reduction;
 
-    private Double reductionConditions;
+    private Double conditions;
 
     private Integer number;
 
     private Date overtime;
 
     private Integer shopId;
-
-    private Boolean yesNo;
 
     public Integer getId() {
         return id;
@@ -43,12 +41,12 @@ public class Coupons {
         this.reduction = reduction;
     }
 
-    public Double getReductionConditions() {
-        return reductionConditions;
+    public Double getConditions() {
+        return conditions;
     }
 
-    public void setReductionConditions(Double reductionConditions) {
-        this.reductionConditions = reductionConditions;
+    public void setConditions(Double conditions) {
+        this.conditions = conditions;
     }
 
     public Integer getNumber() {
@@ -73,13 +71,5 @@ public class Coupons {
 
     public void setShopId(Integer shopId) {
         this.shopId = shopId;
-    }
-
-    public Boolean getYesNo() {
-        return yesNo;
-    }
-
-    public void setYesNo(Boolean yesNo) {
-        this.yesNo = yesNo;
     }
 }

@@ -5,19 +5,19 @@ import java.util.Date;
 public class Items {
     private Integer id;
 
-    private String orderNo;
+    private String orderno;
 
-    private Integer orderGoodsid;
+    private Integer goodsid;
 
-    private Integer orderUserId;
+    private Integer userid;
 
-    private Date orderTime;
+    private Date ordertime;
 
-    private Date orderArrivalTime;
+    private Date arrivaltime;
 
-    private Integer orderNowStatus;
+    private Integer ordernowstatus;
 
-    private Integer orderReceivingAddressId;
+    private Integer addressid;
 
     public Integer getId() {
         return id;
@@ -27,59 +27,59 @@ public class Items {
         this.id = id;
     }
 
-    public String getOrderNo() {
-        return orderNo;
+    public String getOrderno() {
+        return orderno;
     }
 
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo == null ? null : orderNo.trim();
+    public void setOrderno(String orderno) {
+        this.orderno = orderno == null ? null : orderno.trim();
     }
 
-    public Integer getOrderGoodsid() {
-        return orderGoodsid;
+    public Integer getGoodsid() {
+        return goodsid;
     }
 
-    public void setOrderGoodsid(Integer orderGoodsid) {
-        this.orderGoodsid = orderGoodsid;
+    public void setGoodsid(Integer goodsid) {
+        this.goodsid = goodsid;
     }
 
-    public Integer getOrderUserId() {
-        return orderUserId;
+    public Integer getUserid() {
+        return userid;
     }
 
-    public void setOrderUserId(Integer orderUserId) {
-        this.orderUserId = orderUserId;
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 
-    public Date getOrderTime() {
-        return orderTime;
+    public Date getOrdertime() {
+        return ordertime;
     }
 
-    public void setOrderTime(Date orderTime) {
-        this.orderTime = orderTime;
+    public void setOrdertime(Date ordertime) {
+        this.ordertime = ordertime;
     }
 
-    public Date getOrderArrivalTime() {
-        return orderArrivalTime;
+    public Date getArrivaltime() {
+        return arrivaltime;
     }
 
-    public void setOrderArrivalTime(Date orderArrivalTime) {
-        this.orderArrivalTime = orderArrivalTime;
+    public void setArrivaltime(Date arrivaltime) {
+        this.arrivaltime = arrivaltime;
     }
 
-    public Integer getOrderNowStatus() {
-        return orderNowStatus;
+    public Integer getOrdernowstatus() {
+        return ordernowstatus;
     }
 
-    public void setOrderNowStatus(Integer orderNowStatus) {
-        this.orderNowStatus = orderNowStatus;
+    public void setOrdernowstatus(Integer ordernowstatus) {
+        this.ordernowstatus = ordernowstatus;
     }
 
-    public Integer getOrderReceivingAddressId() {
-        return orderReceivingAddressId;
+    public Integer getAddressid() {
+        return addressid;
     }
 
-    public void setOrderReceivingAddressId(Integer orderReceivingAddressId) {
-        this.orderReceivingAddressId = orderReceivingAddressId;
+    public void setAddressid(Integer addressid) {
+        this.addressid = addressid;
     }
 }

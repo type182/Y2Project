@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Mai.dao.Mybatis.CutstomerMapper" >
+  <resultMap id="BaseResultMap" type="com.Mai.pojo.Mybatis.Cutstomer" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sdk" property="sdk" jdbcType="VARCHAR" />
+    <result column="pawss" property="pawss" jdbcType="VARCHAR" />
+    <result column="businessid" property="businessid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sdk, pawss, businessid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cutstomer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cutstomer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.Mai.pojo.Mybatis.Cutstomer" >
+    insert into cutstomer (id, sdk, pawss, 
+      businessid)
+    values (#{id,jdbcType=INTEGER}, #{sdk,jdbcType=VARCHAR}, #{pawss,jdbcType=VARCHAR}, 
+      #{businessid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.Mai.pojo.Mybatis.Cutstomer" >
+    insert into cutstomer
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sdk != null" >
+        sdk,
+      </if>
+      <if test="pawss != null" >
+        pawss,
+      </if>
+      <if test="businessid != null" >
+        businessid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sdk != null" >
+        #{sdk,jdbcType=VARCHAR},
+      </if>
+      <if test="pawss != null" >
+        #{pawss,jdbcType=VARCHAR},
+      </if>
+      <if test="businessid != null" >
+        #{businessid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Mai.pojo.Mybatis.Cutstomer" >
+    update cutstomer
+    <set >
+      <if test="sdk != null" >
+        sdk = #{sdk,jdbcType=VARCHAR},
+      </if>
+      <if test="pawss != null" >
+        pawss = #{pawss,jdbcType=VARCHAR},
+      </if>
+      <if test="businessid != null" >
+        businessid = #{businessid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Mai.pojo.Mybatis.Cutstomer" >
+    update cutstomer
+    set sdk = #{sdk,jdbcType=VARCHAR},
+      pawss = #{pawss,jdbcType=VARCHAR},
+      businessid = #{businessid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

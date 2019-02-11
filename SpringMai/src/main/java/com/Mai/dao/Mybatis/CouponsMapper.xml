@@ -5,14 +5,13 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="reduction" property="reduction" jdbcType="DOUBLE" />
-    <result column="reduction_conditions" property="reductionConditions" jdbcType="DOUBLE" />
+    <result column="conditions" property="conditions" jdbcType="DOUBLE" />
     <result column="number" property="number" jdbcType="INTEGER" />
     <result column="overtime" property="overtime" jdbcType="DATE" />
     <result column="shop_id" property="shopId" jdbcType="INTEGER" />
-    <result column="yes_no" property="yesNo" jdbcType="BIT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, reduction, reduction_conditions, number, overtime, shop_id, yes_no
+    id, name, reduction, conditions, number, overtime, shop_id
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,11 +25,11 @@
   </delete>
   <insert id="insert" parameterType="com.Mai.pojo.Mybatis.Coupons" >
     insert into coupons (id, name, reduction, 
-      reduction_conditions, number, overtime, 
-      shop_id, yes_no)
+      conditions, number, overtime, 
+      shop_id)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{reduction,jdbcType=DOUBLE}, 
-      #{reductionConditions,jdbcType=DOUBLE}, #{number,jdbcType=INTEGER}, #{overtime,jdbcType=DATE}, 
-      #{shopId,jdbcType=INTEGER}, #{yesNo,jdbcType=BIT})
+      #{conditions,jdbcType=DOUBLE}, #{number,jdbcType=INTEGER}, #{overtime,jdbcType=DATE}, 
+      #{shopId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.Mai.pojo.Mybatis.Coupons" >
     insert into coupons
@@ -44,8 +43,8 @@
       <if test="reduction != null" >
         reduction,
       </if>
-      <if test="reductionConditions != null" >
-        reduction_conditions,
+      <if test="conditions != null" >
+        conditions,
       </if>
       <if test="number != null" >
         number,
@@ -55,9 +54,6 @@
       </if>
       <if test="shopId != null" >
         shop_id,
-      </if>
-      <if test="yesNo != null" >
-        yes_no,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -70,8 +66,8 @@
       <if test="reduction != null" >
         #{reduction,jdbcType=DOUBLE},
       </if>
-      <if test="reductionConditions != null" >
-        #{reductionConditions,jdbcType=DOUBLE},
+      <if test="conditions != null" >
+        #{conditions,jdbcType=DOUBLE},
       </if>
       <if test="number != null" >
         #{number,jdbcType=INTEGER},
@@ -81,9 +77,6 @@
       </if>
       <if test="shopId != null" >
         #{shopId,jdbcType=INTEGER},
-      </if>
-      <if test="yesNo != null" >
-        #{yesNo,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -96,8 +89,8 @@
       <if test="reduction != null" >
         reduction = #{reduction,jdbcType=DOUBLE},
       </if>
-      <if test="reductionConditions != null" >
-        reduction_conditions = #{reductionConditions,jdbcType=DOUBLE},
+      <if test="conditions != null" >
+        conditions = #{conditions,jdbcType=DOUBLE},
       </if>
       <if test="number != null" >
         number = #{number,jdbcType=INTEGER},
@@ -108,9 +101,6 @@
       <if test="shopId != null" >
         shop_id = #{shopId,jdbcType=INTEGER},
       </if>
-      <if test="yesNo != null" >
-        yes_no = #{yesNo,jdbcType=BIT},
-      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -118,11 +108,10 @@
     update coupons
     set name = #{name,jdbcType=VARCHAR},
       reduction = #{reduction,jdbcType=DOUBLE},
-      reduction_conditions = #{reductionConditions,jdbcType=DOUBLE},
+      conditions = #{conditions,jdbcType=DOUBLE},
       number = #{number,jdbcType=INTEGER},
       overtime = #{overtime,jdbcType=DATE},
-      shop_id = #{shopId,jdbcType=INTEGER},
-      yes_no = #{yesNo,jdbcType=BIT}
+      shop_id = #{shopId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

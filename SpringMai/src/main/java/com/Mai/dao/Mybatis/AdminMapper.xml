@@ -5,10 +5,10 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="pwd" property="pwd" jdbcType="VARCHAR" />
-    <result column="head_portrait" property="headPortrait" jdbcType="VARCHAR" />
+    <result column="headPortrait" property="headportrait" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, pwd, head_portrait
+    id, name, pwd, headPortrait
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -22,9 +22,9 @@
   </delete>
   <insert id="insert" parameterType="com.Mai.pojo.Mybatis.Admin" >
     insert into admin (id, name, pwd, 
-      head_portrait)
+      headPortrait)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
-      #{headPortrait,jdbcType=VARCHAR})
+      #{headportrait,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.Mai.pojo.Mybatis.Admin" >
     insert into admin
@@ -38,8 +38,8 @@
       <if test="pwd != null" >
         pwd,
       </if>
-      <if test="headPortrait != null" >
-        head_portrait,
+      <if test="headportrait != null" >
+        headPortrait,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -52,8 +52,8 @@
       <if test="pwd != null" >
         #{pwd,jdbcType=VARCHAR},
       </if>
-      <if test="headPortrait != null" >
-        #{headPortrait,jdbcType=VARCHAR},
+      <if test="headportrait != null" >
+        #{headportrait,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -66,8 +66,8 @@
       <if test="pwd != null" >
         pwd = #{pwd,jdbcType=VARCHAR},
       </if>
-      <if test="headPortrait != null" >
-        head_portrait = #{headPortrait,jdbcType=VARCHAR},
+      <if test="headportrait != null" >
+        headPortrait = #{headportrait,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -76,20 +76,7 @@
     update admin
     set name = #{name,jdbcType=VARCHAR},
       pwd = #{pwd,jdbcType=VARCHAR},
-      head_portrait = #{headPortrait,jdbcType=VARCHAR}
+      headPortrait = #{headportrait,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- 扩展 -->
-  
-  
-  
-  
 </mapper>
