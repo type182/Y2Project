@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.UserMapper" >
+  <!-- 用户信息操作模板 -->
+  <select id="UserLoder" resultType="com.pojo.User">
+  	<!-- 用户的登陆 -->
+  	SELECT
+		* 
+	FROM
+		`user` 
+	<where>
+		<if test="Type==1">
+			( user_name = #{name} AND user_pwd = #{pawss} ) 
+			OR ( user_phone = #{name} AND user_pwd = #{pawss} ) 
+			OR ( user_email = #{name} AND user_pwd = #{pawss} ) 
+		</if>
+		<if test="Type=2">
+			user_phone=#{name}
+		</if>
+	</where>
+	LIMIT 0,1;		
+  </select>
+  
+  
+  
+  
+  
+  <insert id="UserInsert" parameterType="com.pojo.User">
+  	<!-- 用户的注册 -->
+  	insert INTO `user` VALUE(NULL,#{user_name},#{user_pwd}
+  		<trim prefix=",">
+  			<if test="user_phone!=null and user_phone!=''">
+  				#{ser_phone},
+  			</if>
+  			<if test="user_phone==null or user_phone==''">
+  				null,
+  			</if>
+  			<if test="user_email!=null and user_email!=''">
+  				#{user_email},
+  			</if>
+  			<if test="user_email==null or user_email==''">
+  				null,
+  			</if>
+  		</trim>
+  	default,default,default);
+  </insert>
+  
+  
+  
+  
+  
+  
+  <!-- 用户消费操作模板 -->
+  
+  <!-- 用户对商品的操作模板 -->
+  
+</mapper>

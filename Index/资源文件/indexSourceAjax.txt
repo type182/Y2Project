@@ -1,0 +1,11 @@
+节点id  = Youaddres
+用户当前登陆的地址
+
+父级id = ranking
+热门商品
+<div class="top_item"><a class="top_item_lk" href="${lisc.id}" target="_blank">
+<div class="lazyimg lazyimg_loaded top_item_img"><img src="${lisc.itempice}"
+ class="lazyimg_img"></div>
+<span class="top_item_rank top_item_rank_${lisc.id}">${lisc.id}</span><span class="top_item_name">${lisc.itemname}</span>
+</a></div> 
+</div>
